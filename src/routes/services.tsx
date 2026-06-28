@@ -47,7 +47,7 @@ function ServicesPage() {
                   ))}
                 </ul>
                 <a
-                  href="mailto:saadhabibwebsite@gmail.com?subject=Quote request for " + service.title
+                  href={`mailto:saadhabibwebsite@gmail.com?subject=Quote request for ${service.title}`}
                   className="mt-6 inline-flex items-center justify-center gap-2 rounded-lg bg-primary px-4 py-2.5 text-sm font-semibold text-primary-foreground transition-colors hover:bg-primary/90"
                 >
                   Request this service

@@ -72,19 +72,22 @@ function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
   );
 }
 
+import { Header } from "../components/Header";
+import { Footer } from "../components/Footer";
+
 export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()({
   head: () => ({
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Lovable App" },
-      { name: "description", content: "Lovable Generated Project" },
-      { name: "author", content: "Lovable" },
-      { property: "og:title", content: "Lovable App" },
-      { property: "og:description", content: "Lovable Generated Project" },
+      { title: "Saad Habib Freelancing Services" },
+      { name: "description", content: "Professional freelance services by Saad Habib: data entry, lead generation, data extraction, list cleaning, email marketing, e-commerce listing and store design." },
+      { name: "author", content: "Saad Habib" },
+      { property: "og:title", content: "Saad Habib Freelancing Services" },
+      { property: "og:description", content: "Professional freelance services by Saad Habib: data entry, lead generation, data extraction, list cleaning, email marketing, e-commerce listing and store design." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
-      { name: "twitter:site", content: "@Lovable" },
+      { name: "twitter:site", content: "@SaadHabib" },
     ],
     links: [
       {
@@ -118,8 +121,12 @@ function RootComponent() {
 
   return (
     <QueryClientProvider client={queryClient}>
-      {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
-      <Outlet />
+      <div className="flex min-h-screen flex-col">
+        <Header />
+        {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
+        <Outlet />
+        <Footer />
+      </div>
     </QueryClientProvider>
   );
 }

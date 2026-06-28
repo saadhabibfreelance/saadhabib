@@ -95,9 +95,9 @@ function Index() {
           </div>
           <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {services.map((service) => (
-              <Link
+              <a
                 key={service.id}
-                to="/services"
+                href={`/services#${service.id}`}
                 className="group rounded-2xl border border-border bg-card p-6 shadow-sm transition-all hover:-translate-y-1 hover:shadow-md"
               >
                 <div className="text-4xl">{service.icon}</div>
@@ -109,7 +109,7 @@ function Index() {
                   Learn more
                   <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
                 </div>
-              </Link>
+              </a>
             ))}
           </div>
         </div>

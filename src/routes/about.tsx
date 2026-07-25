@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { Mail, Phone, Users } from "lucide-react";
+import { Mail, Phone, Users, Linkedin } from "lucide-react";
+import saadPhoto from "../assets/saad-habib.png.asset.json";
 
 export const Route = createFileRoute("/about")({
   head: () => ({

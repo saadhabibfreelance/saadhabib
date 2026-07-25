@@ -33,7 +33,7 @@ function ServicesPage() {
               <article
                 key={service.id}
                 id={service.id}
-                className="flex flex-col rounded-2xl border border-border bg-card p-6 shadow-sm transition-shadow hover:shadow-md"
+                className="group flex flex-col rounded-2xl border-2 border-border bg-card p-6 shadow-sm transition-all duration-300 hover:-translate-y-2 hover:border-gold hover:bg-gold/5 hover:shadow-xl"
               >
                 <div className="text-4xl">{service.icon}</div>
                 <h2 className="mt-4 text-2xl font-semibold text-navy">{service.title}</h2>

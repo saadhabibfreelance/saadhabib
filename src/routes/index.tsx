@@ -95,6 +95,8 @@ function Index() {
     <main>
       <ScrollProgress />
       <CinematicHero />
+      <CinematicStory />
+
 
 
       {/* 2. ABOUT / PROFILE */}

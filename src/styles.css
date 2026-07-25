@@ -147,6 +147,14 @@
     border-color: var(--color-border);
   }
 
+  html {
+    scroll-behavior: smooth;
+  }
+
+  html.snap {
+    scroll-snap-type: y mandatory;
+  }
+
   body {
     background-color: var(--color-background);
     color: var(--color-foreground);
@@ -159,4 +167,37 @@
   .dark h1, .dark h2, .dark h3, .dark h4, .dark h5, .dark h6 {
     color: var(--color-gold-light);
   }
+}
+
+@utility snap-section {
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+@utility text-stroke {
+  -webkit-text-stroke: 2px currentColor;
+  color: transparent;
+}
+
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+@utility animate-marquee {
+  animation: marquee 30s linear infinite;
+}
+
+@keyframes blob {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33% { transform: translate(30px, -50px) scale(1.1); }
+  66% { transform: translate(-20px, 20px) scale(0.9); }
+}
+@utility animate-blob {
+  animation: blob 12s ease-in-out infinite;
 }

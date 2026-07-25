@@ -30,15 +30,28 @@ function AboutPage() {
         <div className="mx-auto max-w-5xl">
           <div className="grid gap-12 md:grid-cols-2">
             {/* Saad Habib */}
-            <div className="rounded-2xl border border-border bg-card p-8 text-center shadow-sm">
-              <div className="mx-auto flex h-24 w-24 items-center justify-center rounded-full bg-primary text-4xl font-bold text-primary-foreground">
-                SH
+            <div className="rounded-2xl border border-border bg-card p-8 text-center shadow-sm transition-all hover:-translate-y-1 hover:border-gold hover:shadow-lg">
+              <div className="mx-auto h-32 w-32 overflow-hidden rounded-full ring-4 ring-gold/40">
+                <img
+                  src={saadPhoto.url}
+                  alt="Saad Habib, Founder"
+                  className="h-full w-full object-cover"
+                />
               </div>
               <h2 className="mt-6 text-2xl font-bold text-navy">Saad Habib</h2>
               <p className="mt-1 text-sm font-medium text-muted-foreground">Founder</p>
               <p className="mt-4 text-muted-foreground">
                 Saad manages client projects and leads the technical work. He specializes in data services, lead generation, and e-commerce operations, making sure every project is delivered accurately and on time.
               </p>
+              <a
+                href="https://www.linkedin.com/in/saad-habib-me"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Saad Habib on LinkedIn"
+                className="mt-5 inline-flex h-10 w-10 items-center justify-center rounded-full bg-navy text-cream transition-colors hover:bg-gold hover:text-navy"
+              >
+                <Linkedin className="h-5 w-5" />
+              </a>
             </div>
 
             {/* Misbah */}

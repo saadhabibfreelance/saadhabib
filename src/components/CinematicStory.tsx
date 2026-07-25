@@ -235,7 +235,7 @@ function Visual({ scene }: { scene: Scene }) {
 
 export function CinematicStory() {
   const wrapRef = useRef<HTMLDivElement | null>(null);
-  const sceneRefs = useRef<Array<HTMLDivElement | null>>([]);
+  const sceneRefs = useRef<Array<HTMLElement | null>>([]);
 
   useEffect(() => {
     const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;

@@ -4,6 +4,7 @@ import { services } from "../lib/services";
 import { ArrowRight, Linkedin, Star, Zap, Shield, Clock, Mail, Phone } from "lucide-react";
 import saadPhoto from "../assets/saad-habib.png.asset.json";
 import { CinematicHero } from "../components/CinematicHero";
+import { CinematicStory } from "../components/CinematicStory";
 import { ScrollProgress } from "../components/ScrollProgress";
 
 export const Route = createFileRoute("/")({

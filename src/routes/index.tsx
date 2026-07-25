@@ -1,16 +1,18 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect } from "react";
 import { services } from "../lib/services";
-import { ArrowRight, Linkedin, Star, Zap, Shield, Clock, Sparkles, Mail, Phone } from "lucide-react";
+import { ArrowRight, Linkedin, Star, Zap, Shield, Clock, Mail, Phone } from "lucide-react";
 import saadPhoto from "../assets/saad-habib.png.asset.json";
+import { CinematicHero } from "../components/CinematicHero";
+import { ScrollProgress } from "../components/ScrollProgress";
 
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
       { title: "Saad Habib — Freelance Data, Leads & E-commerce" },
-      { name: "description", content: "Colorful freelance studio by Saad Habib: data entry, lead generation, email marketing, and e-commerce store design that ships fast." },
+      { name: "description", content: "Cinematic freelance studio by Saad Habib: data entry, lead generation, email marketing, and e-commerce store design that ships fast." },
       { property: "og:title", content: "Saad Habib — Freelance Data, Leads & E-commerce" },
-      { property: "og:description", content: "Colorful freelance studio by Saad Habib: data entry, lead generation, email marketing, and e-commerce store design." },
+      { property: "og:description", content: "Cinematic freelance studio by Saad Habib: data entry, lead generation, email marketing, and e-commerce store design." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
@@ -19,7 +21,6 @@ export const Route = createFileRoute("/")({
 });
 
 const sectionPalettes = [
-  "from-[#FF5F6D] via-[#FFC371] to-[#FFDA77]",
   "from-[#43CEA2] via-[#185A9D] to-[#2C5364]",
   "from-[#F09819] via-[#FF5858] to-[#8E2DE2]",
   "from-[#00C9FF] via-[#92FE9D] to-[#FFEE00]",
@@ -54,9 +55,8 @@ function Section({
   return (
     <section
       id={id}
-      className={`snap-section bg-gradient-to-br ${sectionPalettes[index % sectionPalettes.length]} px-4 py-24 sm:px-6 lg:px-8 ${className}`}
+      className={`relative overflow-hidden bg-gradient-to-br ${sectionPalettes[index % sectionPalettes.length]} px-4 py-24 sm:px-6 lg:px-8 ${className}`}
     >
-      {/* decorative blobs */}
       <div className="pointer-events-none absolute -left-24 -top-24 h-96 w-96 rounded-full bg-white/20 blur-3xl animate-blob" />
       <div className="pointer-events-none absolute -bottom-32 -right-24 h-[28rem] w-[28rem] rounded-full bg-black/20 blur-3xl animate-blob" style={{ animationDelay: "3s" }} />
       <div className="relative z-10 mx-auto w-full max-w-7xl">{children}</div>
@@ -66,44 +66,35 @@ function Section({
 
 function Index() {
   useEffect(() => {
-    const html = document.documentElement;
-    html.classList.add("snap");
-    return () => html.classList.remove("snap");
+    let lenis: { destroy: () => void; raf: (t: number) => void } | null = null;
+    let raf = 0;
+    let cancelled = false;
+    (async () => {
+      const { default: Lenis } = await import("lenis");
+      if (cancelled) return;
+      lenis = new Lenis({
+        duration: 1.15,
+        easing: (t: number) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+        smoothWheel: true,
+      }) as unknown as typeof lenis;
+      const loop = (time: number) => {
+        lenis?.raf(time);
+        raf = requestAnimationFrame(loop);
+      };
+      raf = requestAnimationFrame(loop);
+    })();
+    return () => {
+      cancelled = true;
+      cancelAnimationFrame(raf);
+      lenis?.destroy();
+    };
   }, []);
 
   return (
     <main>
-      {/* 1. HERO */}
-      <Section index={0}>
-        <div className="text-center text-white">
-          <span className="inline-flex items-center gap-2 rounded-full border border-white/40 bg-white/10 px-4 py-1.5 text-sm font-semibold backdrop-blur">
-            <Sparkles className="h-4 w-4" /> Freelance studio · Open for projects
-          </span>
-          <h1 className="mt-6 text-5xl font-black leading-[0.9] tracking-tight drop-shadow-[0_4px_20px_rgba(0,0,0,0.25)] sm:text-7xl lg:text-8xl">
-            Data. Leads. <br />
-            <span className="text-stroke">E-commerce.</span>
-          </h1>
-          <p className="mx-auto mt-8 max-w-2xl text-lg font-medium text-white/95 sm:text-xl">
-            Hi, I'm <b>Saad Habib</b>. I build fast, accurate freelance work that saves you hours — from lead lists to Shopify storefronts.
-          </p>
-          <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
-            <Link
-              to="/services"
-              className="inline-flex items-center gap-2 rounded-full bg-white px-7 py-4 text-base font-bold text-[#1A1A2E] shadow-[0_10px_40px_-10px_rgba(0,0,0,0.5)] transition-transform hover:-translate-y-1"
-            >
-              Explore Services
-              <ArrowRight className="h-4 w-4" />
-            </Link>
-            <a
-              href="mailto:saadhabibwebsite@gmail.com"
-              className="inline-flex items-center gap-2 rounded-full border-2 border-white/80 bg-transparent px-7 py-4 text-base font-bold text-white transition-colors hover:bg-white hover:text-[#1A1A2E]"
-            >
-              Get a Quote
-            </a>
-          </div>
-          <div className="mt-16 animate-bounce text-white/70 text-sm font-semibold">↓ scroll</div>
-        </div>
-      </Section>
+      <ScrollProgress />
+      <CinematicHero />
+
 
       {/* 2. ABOUT / PROFILE */}
       <Section index={1}>

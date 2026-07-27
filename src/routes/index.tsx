@@ -75,25 +75,26 @@ function Index() {
       {/* 2. ABOUT / PROFILE */}
       <Section index={1}>
         <div className="grid items-center gap-12 md:grid-cols-2">
-          <div className="relative mx-auto w-full max-w-sm">
+          <div data-reveal="zoom" className="relative mx-auto w-full max-w-sm">
             <div className="absolute -inset-6 rounded-[2rem] bg-gradient-to-br from-[#FFD93D] to-[#FF6B6B] blur-2xl opacity-70" />
             <div className="relative overflow-hidden rounded-[2rem] border-4 border-white/80 bg-white shadow-2xl">
-              <img src={saadPhoto.url} alt="Saad Habib" className="h-full w-full object-cover" />
+              <img data-cursor="image" src={saadPhoto.url} alt="Saad Habib" className="h-full w-full object-cover" />
             </div>
           </div>
           <div className="text-white">
-            <span className="text-sm font-bold uppercase tracking-[0.2em] text-[#FFD93D]">Meet the founder</span>
-            <h2 className="mt-3 text-4xl font-black tracking-tight text-white sm:text-6xl">
+            <span data-reveal="fade" className="text-sm font-bold uppercase tracking-[0.2em] text-[#FFD93D]">Meet the founder</span>
+            <h2 data-reveal="split" className="mt-3 text-4xl font-black tracking-tight text-white sm:text-6xl">
               I'm Saad Habib.
             </h2>
-            <p className="mt-6 text-lg text-white/90">
+            <p data-reveal="slide" data-reveal-delay="0.15" className="mt-6 text-lg text-white/90">
               A freelance professional obsessed with clean data, sharp e-commerce, and pixel-perfect delivery. Years of hands-on work across lead generation, list building, email marketing, and Shopify/Amazon setup.
             </p>
-            <p className="mt-4 text-white/80">
+            <p data-reveal="fade" data-reveal-delay="0.25" className="mt-4 text-white/80">
               Solo entrepreneur or growing team — I take the repetitive workload off your plate so you can focus on scaling.
             </p>
-            <div className="mt-8 flex flex-wrap items-center gap-4">
+            <div data-reveal="fade" data-reveal-delay="0.35" className="mt-8 flex flex-wrap items-center gap-4">
               <a
+                data-magnetic
                 href="https://www.linkedin.com/in/saad-habib-me"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -103,6 +104,7 @@ function Index() {
                 <Linkedin className="h-7 w-7" />
               </a>
               <a
+                data-magnetic
                 href="mailto:saadhabibwebsite@gmail.com"
                 className="inline-flex items-center gap-2 rounded-full bg-[#FFD93D] px-6 py-3.5 text-sm font-bold text-[#1A1A2E] shadow-lg transition-transform hover:-translate-y-1"
               >
@@ -117,7 +119,7 @@ function Index() {
       {/* 3. MARQUEE STATS */}
       <Section index={2}>
         <div className="text-center text-white">
-          <h2 className="text-4xl font-black tracking-tight text-white sm:text-6xl">
+          <h2 data-reveal="mask" className="text-4xl font-black tracking-tight text-white sm:text-6xl">
             Numbers that <span className="text-[#FFEE00]">deliver</span>.
           </h2>
           <div className="mt-16 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
@@ -126,8 +128,8 @@ function Index() {
               { value: "150+", label: "Happy clients" },
               { value: "5+", label: "Years experience" },
               { value: "24h", label: "Avg. response" },
-            ].map((s) => (
-              <div key={s.label} className="rounded-3xl border border-white/30 bg-white/10 p-8 backdrop-blur transition-transform hover:-translate-y-2">
+            ].map((s, i) => (
+              <div key={s.label} data-reveal="scale" data-reveal-delay={String(i * 0.08)} className="rounded-3xl border border-white/30 bg-white/10 p-8 backdrop-blur transition-all duration-500 hover:-translate-y-2 hover:border-[#FFEE00] hover:bg-white/15 hover:shadow-[0_20px_50px_-10px_rgba(255,238,0,0.35)]">
                 <div className="text-6xl font-black text-[#FFEE00] drop-shadow">{s.value}</div>
                 <div className="mt-3 text-sm font-semibold uppercase tracking-widest text-white/80">{s.label}</div>
               </div>
@@ -155,12 +157,13 @@ function Index() {
         <div className="text-[#1A1A2E]">
           <div className="flex flex-col items-start justify-between gap-4 sm:flex-row sm:items-end">
             <div>
-              <span className="rounded-full bg-[#1A1A2E] px-4 py-1.5 text-xs font-bold uppercase tracking-widest text-[#FFEE00]">Services</span>
-              <h2 className="mt-4 text-4xl font-black tracking-tight sm:text-6xl">
+              <span data-reveal="fade" className="rounded-full bg-[#1A1A2E] px-4 py-1.5 text-xs font-bold uppercase tracking-widest text-[#FFEE00]">Services</span>
+              <h2 data-reveal="split" className="mt-4 text-4xl font-black tracking-tight sm:text-6xl">
                 Pick your <span className="text-white">superpower</span>.
               </h2>
             </div>
             <Link
+              data-magnetic
               to="/services"
               className="inline-flex items-center gap-2 rounded-full bg-[#1A1A2E] px-5 py-3 text-sm font-bold text-white hover:bg-black"
             >
@@ -175,6 +178,8 @@ function Index() {
                 <a
                   key={service.id}
                   href={`/services#${service.id}`}
+                  data-reveal="scale"
+                  data-reveal-delay={String((i % 3) * 0.08)}
                   className={`group relative overflow-hidden rounded-3xl ${c.bg} ${c.text} p-6 ring-4 ring-transparent shadow-[0_10px_30px_-10px_rgba(0,0,0,0.4)] transition-all duration-300 hover:-translate-y-2 hover:rotate-[-1deg] hover:${c.ring} hover:shadow-[0_20px_50px_-10px_rgba(0,0,0,0.5)]`}
                 >
                   <div className="text-5xl transition-transform duration-300 group-hover:scale-125 group-hover:rotate-12">{service.icon}</div>
@@ -195,8 +200,8 @@ function Index() {
       <Section index={4}>
         <div className="text-white">
           <div className="text-center">
-            <h2 className="text-4xl font-black tracking-tight sm:text-6xl">How we <span className="text-[#FFD93D]">work</span>.</h2>
-            <p className="mt-4 text-lg text-white/85">Transparent, simple, and fast — from first message to final delivery.</p>
+            <h2 data-reveal="blur" className="text-4xl font-black tracking-tight sm:text-6xl">How we <span className="text-[#FFD93D]">work</span>.</h2>
+            <p data-reveal="fade" data-reveal-delay="0.2" className="mt-4 text-lg text-white/85">Transparent, simple, and fast — from first message to final delivery.</p>
           </div>
           <div className="mt-16 grid gap-6 md:grid-cols-4">
             {[
@@ -205,7 +210,7 @@ function Index() {
               { icon: Clock, title: "Deliver", text: "I execute the work with daily updates.", color: "bg-[#FFD93D] text-[#1A1A2E]" },
               { icon: Star, title: "Refine", text: "Revisions until you're fully satisfied.", color: "bg-[#845EC2]" },
             ].map((step, i) => (
-              <div key={step.title} className={`rounded-3xl p-8 shadow-xl transition-transform hover:-translate-y-2 hover:rotate-1 ${step.color}`}>
+              <div key={step.title} data-reveal="slide" data-reveal-delay={String(i * 0.1)} className={`rounded-3xl p-8 shadow-xl transition-all duration-500 hover:-translate-y-2 hover:rotate-1 hover:shadow-[0_25px_60px_-10px_rgba(0,0,0,0.5)] ${step.color}`}>
                 <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-white/25 backdrop-blur">
                   <step.icon className="h-7 w-7" />
                 </div>
@@ -222,15 +227,15 @@ function Index() {
       <Section index={5}>
         <div className="text-white">
           <div className="text-center">
-            <h2 className="text-4xl font-black tracking-tight text-white sm:text-6xl">Loved by <span className="text-[#43CEA2]">clients</span>.</h2>
+            <h2 data-reveal="split" className="text-4xl font-black tracking-tight text-white sm:text-6xl">Loved by <span className="text-[#43CEA2]">clients</span>.</h2>
           </div>
           <div className="mt-14 grid gap-6 md:grid-cols-3">
             {[
               { name: "Ahmed R.", role: "E-commerce Owner", text: "Saad rebuilt my Shopify store and cleaned up thousands of product listings. Looks great and converts better.", color: "bg-[#FF6B6B]" },
               { name: "Sarah L.", role: "Sales Manager", text: "The B2B lead list was clean, verified, and delivered on time. Highly recommend.", color: "bg-[#FFD93D] text-[#1A1A2E]" },
               { name: "James K.", role: "Marketing Consultant", text: "Reliable, communicative, and fast. My go-to for data entry and email cleaning.", color: "bg-[#4ECDC4]" },
-            ].map((t) => (
-              <div key={t.name} className={`rounded-3xl p-8 shadow-2xl ${t.color} transition-transform hover:-translate-y-2 hover:rotate-[-1deg]`}>
+            ].map((t, i) => (
+              <div key={t.name} data-reveal="scale" data-reveal-delay={String(i * 0.12)} className={`rounded-3xl p-8 shadow-2xl ${t.color} transition-all duration-500 hover:-translate-y-2 hover:rotate-[-1deg] hover:shadow-[0_30px_60px_-10px_rgba(0,0,0,0.55)]`}>
                 <div className="flex gap-1">
                   {Array.from({ length: 5 }).map((_, i) => (
                     <Star key={i} className="h-4 w-4 fill-current" />
@@ -249,15 +254,16 @@ function Index() {
 
       {/* 7. CTA */}
       <Section index={6}>
-        <div className="mx-auto max-w-4xl rounded-[2.5rem] bg-[#1A1A2E] px-6 py-16 text-center text-white shadow-2xl sm:px-12">
-          <h2 className="text-4xl font-black tracking-tight text-white sm:text-6xl">
+        <div data-reveal="scale" className="mx-auto max-w-4xl rounded-[2.5rem] bg-[#1A1A2E] px-6 py-16 text-center text-white shadow-2xl sm:px-12">
+          <h2 data-reveal="split" className="text-4xl font-black tracking-tight text-white sm:text-6xl">
             Let's ship <span className="text-[#FFEE00]">something</span>.
           </h2>
-          <p className="mx-auto mt-6 max-w-xl text-lg text-white/85">
+          <p data-reveal="fade" data-reveal-delay="0.25" className="mx-auto mt-6 max-w-xl text-lg text-white/85">
             Tell me about your project — I'll reply within 24 hours with scope, price, and a timeline.
           </p>
-          <div className="mt-10 flex flex-wrap justify-center gap-4">
+          <div data-reveal="fade" data-reveal-delay="0.4" className="mt-10 flex flex-wrap justify-center gap-4">
             <a
+              data-magnetic
               href="tel:+923002019194"
               className="inline-flex items-center gap-2 rounded-full bg-[#FFEE00] px-7 py-4 text-base font-bold text-[#1A1A2E] shadow-lg transition-transform hover:-translate-y-1"
             >
@@ -265,6 +271,7 @@ function Index() {
               +92 300 201 9194
             </a>
             <a
+              data-magnetic
               href="mailto:saadhabibwebsite@gmail.com"
               className="inline-flex items-center gap-2 rounded-full border-2 border-white/50 px-7 py-4 text-base font-bold text-white transition-colors hover:bg-white hover:text-[#1A1A2E]"
             >

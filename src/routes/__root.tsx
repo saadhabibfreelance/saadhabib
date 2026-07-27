@@ -74,6 +74,10 @@ function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
 
 import { Header } from "../components/Header";
 import { Footer } from "../components/Footer";
+import { MotionProvider } from "../components/MotionProvider";
+import { CustomCursor } from "../components/CustomCursor";
+import { Loader } from "../components/Loader";
+import { ScrollProgress } from "../components/ScrollProgress";
 
 export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()({
   head: () => ({
@@ -121,6 +125,10 @@ function RootComponent() {
 
   return (
     <QueryClientProvider client={queryClient}>
+      <Loader />
+      <CustomCursor />
+      <ScrollProgress />
+      <MotionProvider />
       <div className="flex min-h-screen flex-col">
         <Header />
         {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}

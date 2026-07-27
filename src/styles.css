@@ -155,6 +155,14 @@
     scroll-snap-type: y mandatory;
   }
 
+  /* Hide native cursor when the custom cursor is active (desktop only). */
+  @media (hover: hover) and (prefers-reduced-motion: no-preference) {
+    html.has-custom-cursor,
+    html.has-custom-cursor * {
+      cursor: none !important;
+    }
+  }
+
   body {
     background-color: var(--color-background);
     color: var(--color-foreground);

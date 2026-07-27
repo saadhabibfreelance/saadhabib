@@ -30,9 +30,10 @@ function AboutPage() {
         <div className="mx-auto max-w-5xl">
           <div className="grid gap-12 md:grid-cols-2">
             {/* Saad Habib */}
-            <div className="rounded-2xl border border-border bg-card p-8 text-center shadow-sm transition-all hover:-translate-y-1 hover:border-gold hover:shadow-lg">
+            <div data-reveal="scale" className="rounded-2xl border border-border bg-card p-8 text-center shadow-sm transition-all duration-500 hover:-translate-y-2 hover:border-gold hover:shadow-[0_25px_50px_-15px_rgba(0,0,0,0.25)]">
               <div className="mx-auto h-32 w-32 overflow-hidden rounded-full ring-4 ring-gold/40">
                 <img
+                  data-cursor="image"
                   src={saadPhoto.url}
                   alt="Saad Habib, Founder"
                   className="h-full w-full object-cover"
@@ -44,6 +45,7 @@ function AboutPage() {
                 Saad manages client projects and leads the technical work. He specializes in data services, lead generation, and e-commerce operations, making sure every project is delivered accurately and on time.
               </p>
               <a
+                data-magnetic
                 href="https://www.linkedin.com/in/saad-habib-me"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -55,7 +57,7 @@ function AboutPage() {
             </div>
 
             {/* Misbah */}
-            <div className="rounded-2xl border border-border bg-card p-8 text-center shadow-sm">
+            <div data-reveal="scale" data-reveal-delay="0.12" className="rounded-2xl border border-border bg-card p-8 text-center shadow-sm transition-all duration-500 hover:-translate-y-2 hover:border-gold hover:shadow-[0_25px_50px_-15px_rgba(0,0,0,0.25)]">
               <div className="mx-auto flex h-24 w-24 items-center justify-center rounded-full bg-gold text-3xl font-bold text-navy">
                 M
               </div>

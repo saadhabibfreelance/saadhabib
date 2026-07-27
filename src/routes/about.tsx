@@ -19,8 +19,8 @@ function AboutPage() {
     <main>
       <section className="bg-cream px-4 py-16 sm:px-6 lg:px-8 lg:py-24">
         <div className="mx-auto max-w-4xl text-center">
-          <h1 className="text-4xl font-bold tracking-tight text-navy sm:text-5xl">About us</h1>
-          <p className="mt-4 text-lg text-muted-foreground">
+          <h1 data-reveal="split" className="text-4xl font-bold tracking-tight text-navy sm:text-5xl">About us</h1>
+          <p data-reveal="fade" data-reveal-delay="0.2" className="mt-4 text-lg text-muted-foreground">
             A small, dedicated team delivering reliable freelance services to businesses around the world.
           </p>
         </div>

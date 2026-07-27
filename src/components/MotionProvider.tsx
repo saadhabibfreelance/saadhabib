@@ -18,7 +18,8 @@ export function MotionProvider() {
     const isTouch = window.matchMedia("(hover: none)").matches;
 
     // --- Lenis smooth scroll ---
-    let lenis: { destroy: () => void; raf: (t: number) => void; on: (e: string, cb: () => void) => void } | null = null;
+    type LenisLike = { destroy: () => void; raf: (t: number) => void; on: (e: string, cb: () => void) => void };
+    let lenis: LenisLike | null = null;
     let raf = 0;
     let cancelled = false;
 
@@ -30,8 +31,8 @@ export function MotionProvider() {
         duration: 1.15,
         easing: (t: number) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
         smoothWheel: true,
-      }) as unknown as typeof lenis;
-      lenis?.on("scroll", () => ScrollTrigger.update());
+      }) as unknown as LenisLike;
+      lenis.on("scroll", () => ScrollTrigger.update());
       const loop = (time: number) => {
         lenis?.raf(time);
         raf = requestAnimationFrame(loop);

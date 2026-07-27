@@ -19,8 +19,8 @@ function ServicesPage() {
     <main>
       <section className="bg-cream px-4 py-16 sm:px-6 lg:px-8 lg:py-24">
         <div className="mx-auto max-w-4xl text-center">
-          <h1 className="text-4xl font-bold tracking-tight text-navy sm:text-5xl">Freelance services</h1>
-          <p className="mt-4 text-lg text-muted-foreground">
+          <h1 data-reveal="split" className="text-4xl font-bold tracking-tight text-navy sm:text-5xl">Freelance services</h1>
+          <p data-reveal="fade" data-reveal-delay="0.2" className="mt-4 text-lg text-muted-foreground">
             A complete range of remote support services to help your business grow without the overhead.
           </p>
         </div>
@@ -29,13 +29,15 @@ function ServicesPage() {
       <section className="px-4 py-16 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-7xl">
           <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-            {services.map((service) => (
+            {services.map((service, i) => (
               <article
                 key={service.id}
                 id={service.id}
-                className="group flex flex-col rounded-2xl border-2 border-border bg-card p-6 shadow-sm transition-all duration-300 hover:-translate-y-2 hover:border-gold hover:bg-gold/5 hover:shadow-xl"
+                data-reveal="scale"
+                data-reveal-delay={String((i % 3) * 0.08)}
+                className="group flex flex-col rounded-2xl border-2 border-border bg-card p-6 shadow-sm transition-all duration-500 hover:-translate-y-2 hover:rotate-[0.5deg] hover:border-gold hover:bg-gold/5 hover:shadow-[0_25px_50px_-15px_rgba(0,0,0,0.25)]"
               >
-                <div className="text-4xl">{service.icon}</div>
+                <div className="text-4xl transition-transform duration-500 group-hover:scale-110 group-hover:-rotate-6">{service.icon}</div>
                 <h2 className="mt-4 text-2xl font-semibold text-navy">{service.title}</h2>
                 <p className="mt-2 text-muted-foreground">{service.description}</p>
                 <ul className="mt-5 flex-1 space-y-2">
@@ -47,6 +49,7 @@ function ServicesPage() {
                   ))}
                 </ul>
                 <a
+                  data-magnetic
                   href={`mailto:saadhabibwebsite@gmail.com?subject=Quote request for ${service.title}`}
                   className="mt-6 inline-flex items-center justify-center gap-2 rounded-lg bg-primary px-4 py-2.5 text-sm font-semibold text-primary-foreground transition-colors hover:bg-primary/90"
                 >
@@ -60,13 +63,14 @@ function ServicesPage() {
       </section>
 
       <section className="bg-cream px-4 py-16 sm:px-6 lg:px-8">
-        <div className="mx-auto max-w-3xl rounded-2xl bg-card p-8 text-center shadow-sm sm:p-12">
-          <h2 className="text-2xl font-bold text-navy">Need a custom package?</h2>
-          <p className="mt-3 text-muted-foreground">
+        <div data-reveal="scale" className="mx-auto max-w-3xl rounded-2xl bg-card p-8 text-center shadow-sm sm:p-12">
+          <h2 data-reveal="blur" className="text-2xl font-bold text-navy">Need a custom package?</h2>
+          <p data-reveal="fade" data-reveal-delay="0.15" className="mt-3 text-muted-foreground">
             Most projects combine multiple services. Send me the details and I’ll reply with a tailored quote and timeline.
           </p>
           <div className="mt-6 flex flex-wrap justify-center gap-4">
             <a
+              data-magnetic
               href="mailto:saadhabibwebsite@gmail.com"
               className="inline-flex items-center gap-2 rounded-lg bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground transition-colors hover:bg-primary/90"
             >
@@ -74,6 +78,7 @@ function ServicesPage() {
               <ArrowRight className="h-4 w-4" />
             </a>
             <a
+              data-magnetic
               href="tel:+923002019194"
               className="inline-flex items-center gap-2 rounded-lg border border-border px-6 py-3 text-sm font-semibold text-foreground transition-colors hover:bg-muted"
             >

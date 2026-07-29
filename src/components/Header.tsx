@@ -4,9 +4,9 @@ import { gsap } from "gsap";
 import { Menu, X, Phone, Mail, Linkedin } from "lucide-react";
 
 const SECTIONS = [
-  { id: "about", label: "About" },
+  { id: "about", label: "Founder" },
   { id: "stats", label: "Results" },
-  { id: "services", label: "Services" },
+  { id: "services", label: "What I do" },
   { id: "process", label: "Process" },
   { id: "testimonials", label: "Clients" },
   { id: "contact", label: "Contact" },

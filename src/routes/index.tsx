@@ -11,7 +11,7 @@ export const Route = createFileRoute("/")({
       { title: "Saad Habib — Freelance Data, Leads & E-commerce" },
       { name: "description", content: "Cinematic freelance studio by Saad Habib: data entry, lead generation, email marketing, and e-commerce store design that ships fast." },
       { property: "og:title", content: "Saad Habib — Freelance Data, Leads & E-commerce" },
-      { property: "og:description", content: "Cinematic freelance studio by Saad Habib: data entry, lead generation, email marketing, and e-commerce store design." },
+      { property: "og:description", content: "Cinematic freelance studio by Saad Habib: data entry, lead generation, email marketing, and e-commerce store design that ships fast." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
     ],

@@ -16,7 +16,7 @@ export const Route = createFileRoute("/services")({
 
 function ServicesPage() {
   return (
-    <main>
+    <main className="pt-20">
       <section className="bg-cream px-4 py-16 sm:px-6 lg:px-8 lg:py-24">
         <div className="mx-auto max-w-4xl text-center">
           <h1 data-reveal="split" className="text-4xl font-bold tracking-tight text-navy sm:text-5xl">Freelance services</h1>

@@ -2,6 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { services } from "../lib/services";
 import { ArrowRight, Linkedin, Star, Zap, Shield, Clock, Mail, Phone } from "lucide-react";
 import saadPhoto from "../assets/saad-habib.png.asset.json";
+import { assetUrl } from "../lib/asset-url";
 import { CinematicHero } from "../components/CinematicHero";
 import { CinematicStory } from "../components/CinematicStory";
 
@@ -73,12 +74,12 @@ function Index() {
 
 
       {/* 2. ABOUT / PROFILE */}
-      <Section index={1}>
+      <Section index={1} id="about">
         <div className="grid items-center gap-12 md:grid-cols-2">
           <div data-reveal="zoom" className="relative mx-auto w-full max-w-sm">
             <div className="absolute -inset-6 rounded-[2rem] bg-gradient-to-br from-[#FFD93D] to-[#FF6B6B] blur-2xl opacity-70" />
             <div className="relative overflow-hidden rounded-[2rem] border-4 border-white/80 bg-white shadow-2xl">
-              <img data-cursor="image" src={saadPhoto.url} alt="Saad Habib" className="h-full w-full object-cover" />
+              <img data-cursor="image" src={assetUrl(saadPhoto)} alt="Saad Habib" className="h-full w-full object-cover" />
             </div>
           </div>
           <div className="text-white">
@@ -117,7 +118,7 @@ function Index() {
       </Section>
 
       {/* 3. MARQUEE STATS */}
-      <Section index={2}>
+      <Section index={2} id="stats">
         <div className="text-center text-white">
           <h2 data-reveal="mask" className="text-4xl font-black tracking-tight text-white sm:text-6xl">
             Numbers that <span className="text-[#FFEE00]">deliver</span>.
@@ -197,7 +198,7 @@ function Index() {
       </Section>
 
       {/* 5. PROCESS */}
-      <Section index={4}>
+      <Section index={4} id="process">
         <div className="text-white">
           <div className="text-center">
             <h2 data-reveal="blur" className="text-4xl font-black tracking-tight sm:text-6xl">How we <span className="text-[#FFD93D]">work</span>.</h2>
@@ -224,7 +225,7 @@ function Index() {
       </Section>
 
       {/* 6. TESTIMONIALS */}
-      <Section index={5}>
+      <Section index={5} id="testimonials">
         <div className="text-white">
           <div className="text-center">
             <h2 data-reveal="split" className="text-4xl font-black tracking-tight text-white sm:text-6xl">Loved by <span className="text-[#43CEA2]">clients</span>.</h2>
@@ -253,7 +254,7 @@ function Index() {
       </Section>
 
       {/* 7. CTA */}
-      <Section index={6}>
+      <Section index={6} id="contact">
         <div data-reveal="scale" className="mx-auto max-w-4xl rounded-[2.5rem] bg-[#1A1A2E] px-6 py-16 text-center text-white shadow-2xl sm:px-12">
           <h2 data-reveal="split" className="text-4xl font-black tracking-tight text-white sm:text-6xl">
             Let's ship <span className="text-[#FFEE00]">something</span>.

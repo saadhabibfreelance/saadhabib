@@ -4,6 +4,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import SplitType from "split-type";
 import { ArrowRight, Sparkles, ShieldCheck, ChevronDown } from "lucide-react";
 import saadPhoto from "../assets/saad-habib.png.asset.json";
+import { assetUrl } from "../lib/asset-url";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -288,7 +289,7 @@ export function CinematicHero() {
 
               <div className="mt-6 overflow-hidden rounded-2xl border border-white/10 bg-gradient-to-br from-white/[0.06] to-white/[0.02]">
                 <img
-                  src={saadPhoto.url}
+                  src={assetUrl(saadPhoto)}
                   alt="Saad Habib, founder"
                   className="aspect-[4/5] w-full object-cover"
                   loading="eager"

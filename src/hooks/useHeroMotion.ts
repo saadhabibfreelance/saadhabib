@@ -129,9 +129,11 @@ export function useHeroMotion(refs: HeroRefs) {
     window.addEventListener("mousemove", onMove, { passive: true });
 
     return () => {
+      unsubscribe();
       cancelAnimationFrame(frame);
       window.removeEventListener("mousemove", onMove);
       split.revert();
     };
+
   }, refs.root);
 }

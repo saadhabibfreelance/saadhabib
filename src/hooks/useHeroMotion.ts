@@ -95,7 +95,12 @@ export function useHeroMotion(refs: HeroRefs) {
 
     requestScrollTriggerRefresh();
 
-    if (reduce) return () => split.revert();
+    if (reduce)
+      return () => {
+        unsubscribe();
+        split.revert();
+      };
+
 
     // Pointer parallax — quickTo avoids allocating a tween per mousemove.
     const cardX = gsap.quickTo(card.current, "x", { duration: 0.7, ease: EASE.glide });

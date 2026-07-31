@@ -41,23 +41,28 @@ export function useHeroMotion(refs: HeroRefs) {
     gsap.set(split.words, { yPercent: 110, opacity: 0 });
     gsap.set(text, { y: 24, opacity: 0 });
     gsap.set(card.current, { opacity: 0, y: 40, scale: 0.96 });
+    gsap.set(glow.current, { opacity: 0, scale: 0.9 });
 
-    // One master timeline: no dead time between beats.
-    const tl = gsap.timeline({ defaults: { ease: EASE.glide }, delay: reduce ? 0 : 0.12 });
-    tl.to(badge.current, { y: 0, opacity: 1, duration: DUR.fast })
+    // One master timeline: background → headline → product → copy → CTA → logos.
+    const tl = gsap.timeline({ defaults: { ease: EASE.glide }, paused: true });
+    tl.to(glow.current, { opacity: 0.7, scale: 1, duration: DUR.slow, ease: EASE.reveal })
+      .to(badge.current, { y: 0, opacity: 1, duration: DUR.fast }, "-=0.85")
       .to(
         split.words,
         { yPercent: 0, opacity: 1, duration: DUR.slow, ease: EASE.reveal, stagger: STAGGER.base },
         "-=0.3",
       )
-      .to(sub.current, { y: 0, opacity: 1, duration: DUR.base }, "-=0.75")
-      .to(cta.current, { y: 0, opacity: 1, duration: DUR.fast }, "-=0.55")
-      .to(logos.current, { y: 0, opacity: 1, duration: DUR.fast }, "-=0.45")
       .to(
         card.current,
         { opacity: 1, y: 0, scale: 1, duration: DUR.hero, ease: EASE.reveal },
-        "-=1.05",
-      );
+        "-=0.85",
+      )
+      .to(sub.current, { y: 0, opacity: 1, duration: DUR.base }, "-=0.95")
+      .to(cta.current, { y: 0, opacity: 1, duration: DUR.fast }, "-=0.55")
+      .to(logos.current, { y: 0, opacity: 1, duration: DUR.fast }, "-=0.35");
+
+    const unsubscribe = onAppReady(() => tl.play(reduce ? tl.duration() : 0));
+
 
     if (!reduce) {
       gsap.to(card.current, {

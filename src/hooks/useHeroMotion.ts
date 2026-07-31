@@ -3,6 +3,8 @@ import { gsap } from "gsap";
 import SplitType from "split-type";
 import { useGsapContext, requestScrollTriggerRefresh } from "./useGsapContext";
 import { DUR, EASE, STAGGER, prefersReducedMotion } from "../lib/motion/easing";
+import { onAppReady } from "../lib/motion/loader-gate";
+
 
 export type HeroRefs = {
   root: RefObject<HTMLElement | null>;

@@ -24,7 +24,7 @@ export const Hero = memo(function Hero() {
   return (
     <section
       ref={refs.root}
-      className="relative isolate flex min-h-[100svh] w-full items-center overflow-hidden bg-[#060816] text-white"
+      className="relative isolate flex min-h-[100svh] w-full items-center overflow-hidden bg-[#060816]/60 text-white"
     >
       <div
         aria-hidden

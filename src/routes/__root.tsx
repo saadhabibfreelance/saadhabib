@@ -75,6 +75,7 @@ function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
 import { Header } from "../components/Header";
 import { Footer } from "../components/Footer";
 import { MotionProvider } from "../components/MotionProvider";
+import { AmbientBackground } from "../components/AmbientBackground";
 import { CustomCursor } from "../components/CustomCursor";
 import { Loader } from "../components/Loader";
 import { ScrollProgress } from "../components/ScrollProgress";
@@ -129,6 +130,7 @@ function RootComponent() {
 
   return (
     <QueryClientProvider client={queryClient}>
+      <AmbientBackground />
       <Loader />
       <CustomCursor />
       <ScrollProgress />

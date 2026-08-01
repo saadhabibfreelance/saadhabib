@@ -1,12 +1,12 @@
 import { memo, type ReactNode } from "react";
 
 const sectionPalettes = [
-  "from-[#43CEA2] via-[#185A9D] to-[#2C5364]",
-  "from-[#F09819] via-[#FF5858] to-[#8E2DE2]",
-  "from-[#00C9FF] via-[#92FE9D] to-[#FFEE00]",
-  "from-[#654EA3] via-[#EAAFC8] to-[#FF9A9E]",
-  "from-[#0F2027] via-[#203A43] to-[#2C5364]",
-  "from-[#F857A6] via-[#FF5858] to-[#FFC837]",
+  "from-[#43CEA2]/65 via-[#185A9D]/65 to-[#2C5364]/65",
+  "from-[#F09819]/65 via-[#FF5858]/65 to-[#8E2DE2]/65",
+  "from-[#00C9FF]/65 via-[#92FE9D]/65 to-[#FFEE00]/65",
+  "from-[#654EA3]/65 via-[#EAAFC8]/65 to-[#FF9A9E]/65",
+  "from-[#0F2027]/65 via-[#203A43]/65 to-[#2C5364]/65",
+  "from-[#F857A6]/65 via-[#FF5858]/65 to-[#FFC837]/65",
 ];
 
 export const Section = memo(function Section({

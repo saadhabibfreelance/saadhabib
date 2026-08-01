@@ -7,12 +7,12 @@ gsap.registerPlugin(ScrollTrigger);
 
 /** Section palettes — glow colour, gradient angle, blur intensity. */
 export const AMBIENT_THEMES = [
-  { a: "123,92,255", b: "0,194,255", angle: 160, blur: 120 },
-  { a: "0,201,255", b: "146,254,157", angle: 205, blur: 140 },
-  { a: "240,152,25", b: "255,88,88", angle: 130, blur: 110 },
-  { a: "101,78,163", b: "234,175,200", angle: 240, blur: 150 },
-  { a: "74,222,128", b: "0,194,255", angle: 100, blur: 130 },
-  { a: "248,87,166", b: "255,200,55", angle: 190, blur: 120 },
+  { a: "#7B5CFF", b: "#00C2FF", angle: 160, blur: 120 },
+  { a: "#00C9FF", b: "#92FE9D", angle: 205, blur: 140 },
+  { a: "#F09819", b: "#FF5858", angle: 130, blur: 110 },
+  { a: "#654EA3", b: "#EAAFC8", angle: 240, blur: 150 },
+  { a: "#4ADE80", b: "#00C2FF", angle: 100, blur: 130 },
+  { a: "#F857A6", b: "#FFC837", angle: 190, blur: 120 },
 ] as const;
 
 type Refs = {
@@ -101,15 +101,16 @@ export function useAmbientBackground(refs: Refs) {
 
     // Scroll intensity — background breathes as the page advances.
     const ctx = gsap.context(() => {
-      gsap.to(root, {
-        "--amb-intensity": 1,
-        ease: "none",
-        scrollTrigger: { start: 0, end: "max", scrub: 1.2 },
-      } as gsap.TweenVars);
+      ScrollTrigger.create({
+        start: 0,
+        end: "max",
+        onUpdate: (self) => {
+          root.style.setProperty("--amb-intensity", (0.55 + self.progress * 0.45).toFixed(3));
+        },
+      });
 
-      // Smoothly interpolate palette per major section.
-      const sections = gsap.utils.toArray<HTMLElement>("section");
-      sections.forEach((section, i) => {
+      // Smoothly interpolate palette per major section (CSS transitions on @property vars).
+      gsap.utils.toArray<HTMLElement>("section").forEach((section, i) => {
         const t = AMBIENT_THEMES[i % AMBIENT_THEMES.length];
         ScrollTrigger.create({
           trigger: section,
@@ -117,14 +118,10 @@ export function useAmbientBackground(refs: Refs) {
           end: "bottom 40%",
           onToggle: (self) => {
             if (!self.isActive) return;
-            gsap.to(root, {
-              duration: 1.6,
-              ease: "sine.inOut",
-              "--amb-a": t.a,
-              "--amb-b": t.b,
-              "--amb-angle": `${t.angle}deg`,
-              "--amb-blur": `${t.blur}px`,
-            } as gsap.TweenVars);
+            root.style.setProperty("--amb-a", t.a);
+            root.style.setProperty("--amb-b", t.b);
+            root.style.setProperty("--amb-angle", `${t.angle}deg`);
+            root.style.setProperty("--amb-blur", `${t.blur}px`);
           },
         });
       });

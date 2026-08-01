@@ -209,3 +209,65 @@
 @utility animate-blob {
   animation: blob 12s ease-in-out infinite;
 }
+
+/* ---------- Global ambient background system ---------- */
+@property --amb-a {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #7b5cff;
+}
+@property --amb-b {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #00c2ff;
+}
+@property --amb-angle {
+  syntax: "<angle>";
+  inherits: true;
+  initial-value: 160deg;
+}
+@property --amb-blur {
+  syntax: "<length>";
+  inherits: true;
+  initial-value: 120px;
+}
+@property --amb-intensity {
+  syntax: "<number>";
+  inherits: true;
+  initial-value: 0.7;
+}
+
+.amb-root {
+  transition:
+    --amb-a 1.6s ease-in-out,
+    --amb-b 1.6s ease-in-out,
+    --amb-angle 1.6s ease-in-out,
+    --amb-blur 1.6s ease-in-out;
+}
+
+@keyframes ambBlob {
+  0% { transform: translate3d(0, 0, 0) scale(1); }
+  50% { transform: translate3d(4vw, -3vw, 0) scale(1.12); }
+  100% { transform: translate3d(-3vw, 4vw, 0) scale(0.94); }
+}
+@keyframes ambGrid {
+  from { background-position: 0 0; }
+  to { background-position: 64px 64px; }
+}
+@keyframes ambFloat {
+  from { transform: translate3d(0, 0, 0); }
+  to { transform: translate3d(0, -60px, 0); }
+}
+@keyframes ambBeam {
+  from { transform: translate3d(-6vw, 0, 0) rotate(-12deg); opacity: 0.35; }
+  to { transform: translate3d(8vw, 0, 0) rotate(-4deg); opacity: 0.85; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .amb-root *,
+  .amb-root {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+

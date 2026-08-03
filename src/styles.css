@@ -271,3 +271,69 @@
   }
 }
 
+
+/* ---------- Premium footer ---------- */
+.ftr-wash {
+  background: linear-gradient(
+    120deg,
+    color-mix(in srgb, var(--amb-a) 22%, transparent),
+    transparent 40%,
+    color-mix(in srgb, var(--amb-b) 22%, transparent) 75%,
+    transparent
+  );
+  background-size: 300% 300%;
+  animation: ftrWash 26s ease-in-out infinite alternate;
+}
+@keyframes ftrWash {
+  from { background-position: 0% 50%; }
+  to { background-position: 100% 50%; }
+}
+
+.ftr-border {
+  background: linear-gradient(
+    135deg,
+    color-mix(in srgb, var(--amb-a) 55%, transparent),
+    rgba(255, 255, 255, 0.14) 45%,
+    color-mix(in srgb, var(--amb-b) 55%, transparent)
+  );
+  box-shadow: 0 40px 120px -40px color-mix(in srgb, var(--amb-b) 40%, transparent);
+  transition: filter 0.6s ease;
+}
+
+.ftr-field:focus-within {
+  border-color: color-mix(in srgb, var(--amb-b) 60%, transparent);
+  box-shadow: 0 0 0 4px color-mix(in srgb, var(--amb-b) 14%, transparent),
+    0 0 40px -6px color-mix(in srgb, var(--amb-b) 45%, transparent);
+}
+
+.ftr-social {
+  transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.35s ease,
+    color 0.35s ease, box-shadow 0.45s ease;
+}
+.ftr-social:hover {
+  transform: rotate(-8deg) translateY(-3px);
+  background-color: rgba(255, 255, 255, 0.12);
+  color: #fff;
+  box-shadow: 0 0 30px -6px color-mix(in srgb, var(--amb-b) 55%, transparent);
+}
+
+.ftr-link {
+  position: relative;
+  transition: color 0.3s ease;
+}
+.ftr-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -3px;
+  height: 1px;
+  width: 100%;
+  transform: scaleX(0);
+  transform-origin: right;
+  background: linear-gradient(90deg, var(--amb-a), var(--amb-b));
+  transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.ftr-link:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}

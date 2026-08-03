@@ -16,11 +16,11 @@ export const Route = createFileRoute("/services")({
 
 function ServicesPage() {
   return (
-    <main className="pt-20">
-      <section className="bg-cream px-4 py-16 sm:px-6 lg:px-8 lg:py-24">
+    <main className="pt-24 text-white">
+      <section className="px-4 py-12 sm:px-6 lg:px-8 lg:py-16">
         <div className="mx-auto max-w-4xl text-center">
-          <h1 data-reveal="split" className="text-4xl font-bold tracking-tight text-navy sm:text-5xl">Freelance services</h1>
-          <p data-reveal="fade" data-reveal-delay="0.2" className="mt-4 text-lg text-muted-foreground">
+          <h1 data-reveal="split" className="text-4xl font-bold tracking-tight text-white sm:text-5xl">Freelance services</h1>
+          <p data-reveal="fade" data-reveal-delay="0.2" className="mt-4 text-lg text-white/70">
             A complete range of remote support services to help your business grow without the overhead.
           </p>
         </div>
@@ -35,11 +35,11 @@ function ServicesPage() {
                 id={service.id}
                 data-reveal="scale"
                 data-reveal-delay={String((i % 3) * 0.08)}
-                className="group flex flex-col rounded-2xl border-2 border-border bg-card p-6 shadow-sm transition-all duration-500 hover:-translate-y-2 hover:rotate-[0.5deg] hover:border-gold hover:bg-gold/5 hover:shadow-[0_25px_50px_-15px_rgba(0,0,0,0.25)]"
+                className="group flex flex-col rounded-2xl border border-white/15 bg-white/[0.06] backdrop-blur-xl p-6 shadow-sm transition-all duration-500 hover:-translate-y-2 hover:rotate-[0.5deg] hover:border-gold hover:bg-white/[0.1] hover:shadow-[0_25px_50px_-15px_rgba(0,0,0,0.25)]"
               >
                 <div className="text-4xl transition-transform duration-500 group-hover:scale-110 group-hover:-rotate-6">{service.icon}</div>
-                <h2 className="mt-4 text-2xl font-semibold text-navy">{service.title}</h2>
-                <p className="mt-2 text-muted-foreground">{service.description}</p>
+                <h2 className="mt-4 text-2xl font-semibold text-white">{service.title}</h2>
+                <p className="mt-2 text-white/70">{service.description}</p>
                 <ul className="mt-5 flex-1 space-y-2">
                   {service.features.map((feature) => (
                     <li key={feature} className="flex items-start gap-2 text-sm">
@@ -62,10 +62,10 @@ function ServicesPage() {
         </div>
       </section>
 
-      <section className="bg-cream px-4 py-16 sm:px-6 lg:px-8">
-        <div data-reveal="scale" className="mx-auto max-w-3xl rounded-2xl bg-card p-8 text-center shadow-sm sm:p-12">
-          <h2 data-reveal="blur" className="text-2xl font-bold text-navy">Need a custom package?</h2>
-          <p data-reveal="fade" data-reveal-delay="0.15" className="mt-3 text-muted-foreground">
+      <section className="px-4 py-16 sm:px-6 lg:px-8">
+        <div data-reveal="scale" className="mx-auto max-w-3xl rounded-2xl border border-white/15 bg-white/[0.06] p-8 backdrop-blur-xl text-center shadow-sm sm:p-12">
+          <h2 data-reveal="blur" className="text-2xl font-bold text-white">Need a custom package?</h2>
+          <p data-reveal="fade" data-reveal-delay="0.15" className="mt-3 text-white/70">
             Most projects combine multiple services. Send me the details and I’ll reply with a tailored quote and timeline.
           </p>
           <div className="mt-6 flex flex-wrap justify-center gap-4">
@@ -80,7 +80,7 @@ function ServicesPage() {
             <a
               data-magnetic
               href="tel:+923002019194"
-              className="inline-flex items-center gap-2 rounded-lg border border-border px-6 py-3 text-sm font-semibold text-foreground transition-colors hover:bg-muted"
+              className="inline-flex items-center gap-2 rounded-lg border border-white/25 px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-white/10"
             >
               +92 300 201 9194
             </a>

@@ -37,7 +37,7 @@ export function useHeroMotion(refs: HeroRefs) {
     const { headline, sub, cta, badge, logos, card, glow, root } = refs;
     if (!headline.current || !root.current) return;
 
-    const split = new SplitType(headline.current, { types: "words,chars" });
+    const split = new SplitType(headline.current, { types: "lines,words" });
     const text = [sub.current, cta.current, badge.current, logos.current];
 
     gsap.set(split.words, { yPercent: 110, opacity: 0 });

@@ -168,13 +168,12 @@
     color: var(--color-foreground);
   }
 
+  /* Headings inherit their container colour so section-level text tokens
+     (light copy on dark/colourful sections) never lose contrast. */
   h1, h2, h3, h4, h5, h6 {
-    color: var(--color-navy);
+    color: inherit;
   }
 
-  .dark h1, .dark h2, .dark h3, .dark h4, .dark h5, .dark h6 {
-    color: var(--color-gold-light);
-  }
 }
 
 @utility snap-section {
@@ -336,4 +335,55 @@
 .ftr-link:hover::after {
   transform: scaleX(1);
   transform-origin: left;
+}
+
+/* ---------- Hero headline (split-text safe gradient) ----------
+ * SplitType wraps every word in its own element, which breaks a
+ * background-clip gradient set on an ancestor span. Re-apply the gradient
+ * at the word level so the accent word never renders invisible.
+ */
+.hero-grad,
+.hero-headline .hero-grad .word,
+.hero-headline .hero-grad {
+  background-image: linear-gradient(90deg, #7b5cff, #00c2ff, #4ade80);
+  background-clip: text;
+  color: transparent;
+}
+
+.hero-headline .line {
+  overflow: hidden;
+  padding-bottom: 0.06em;
+}
+
+/* ---------- Global focus + interaction polish ---------- */
+@layer base {
+  :where(a, button, input, textarea, select, [tabindex]):focus-visible {
+    outline: 2px solid color-mix(in srgb, #00c2ff 85%, transparent);
+    outline-offset: 3px;
+    border-radius: 8px;
+  }
+
+  /* Never let the custom cursor hide focus for keyboard users. */
+  html.has-custom-cursor :focus-visible {
+    cursor: auto !important;
+  }
+
+  img,
+  video {
+    max-width: 100%;
+    height: auto;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
 }

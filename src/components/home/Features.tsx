@@ -5,15 +5,15 @@ import { services } from "../../lib/services";
 import { Section } from "./Section";
 
 const cardColors = [
-  { bg: "bg-[#FF6B6B]", ring: "ring-[#FFD93D]", text: "text-white" },
-  { bg: "bg-[#4ECDC4]", ring: "ring-[#FF6B6B]", text: "text-white" },
-  { bg: "bg-[#FFD93D]", ring: "ring-[#1A535C]", text: "text-[#1A1A2E]" },
-  { bg: "bg-[#845EC2]", ring: "ring-[#FFC75F]", text: "text-white" },
-  { bg: "bg-[#00C9A7]", ring: "ring-[#F9F871]", text: "text-[#0b3a34]" },
-  { bg: "bg-[#F9A826]", ring: "ring-[#3A0088]", text: "text-[#2a1600]" },
-  { bg: "bg-[#EF476F]", ring: "ring-[#FFD166]", text: "text-white" },
-  { bg: "bg-[#06D6A0]", ring: "ring-[#EF476F]", text: "text-[#052e23]" },
-  { bg: "bg-[#118AB2]", ring: "ring-[#FFD166]", text: "text-white" },
+  { bg: "bg-[#FF6B6B]", ring: "hover:ring-[#FFD93D]", text: "text-white" },
+  { bg: "bg-[#4ECDC4]", ring: "hover:ring-[#FF6B6B]", text: "text-white" },
+  { bg: "bg-[#FFD93D]", ring: "hover:ring-[#1A535C]", text: "text-[#1A1A2E]" },
+  { bg: "bg-[#845EC2]", ring: "hover:ring-[#FFC75F]", text: "text-white" },
+  { bg: "bg-[#00C9A7]", ring: "hover:ring-[#F9F871]", text: "text-[#0b3a34]" },
+  { bg: "bg-[#F9A826]", ring: "hover:ring-[#3A0088]", text: "text-[#2a1600]" },
+  { bg: "bg-[#EF476F]", ring: "hover:ring-[#FFD166]", text: "text-white" },
+  { bg: "bg-[#06D6A0]", ring: "hover:ring-[#EF476F]", text: "text-[#052e23]" },
+  { bg: "bg-[#118AB2]", ring: "hover:ring-[#FFD166]", text: "text-white" },
 ];
 
 export const Features = memo(function Features() {
@@ -50,7 +50,7 @@ export const Features = memo(function Features() {
                 href={`/services#${service.id}`}
                 data-reveal="scale"
                 data-reveal-delay={String((i % 3) * 0.07)}
-                className={`group relative overflow-hidden rounded-3xl ${c.bg} ${c.text} p-6 ring-4 ring-transparent shadow-[0_10px_30px_-10px_rgba(0,0,0,0.4)] transition-all duration-[420ms] ease-[cubic-bezier(0.16,1,0.3,1)] hover:-translate-y-2 hover:rotate-[-1deg] hover:${c.ring} hover:shadow-[0_20px_50px_-10px_rgba(0,0,0,0.5)]`}
+                className={`group relative overflow-hidden rounded-3xl ${c.bg} ${c.text} p-6 ring-4 ring-transparent shadow-[0_10px_30px_-10px_rgba(0,0,0,0.4)] transition-all duration-[420ms] ease-[cubic-bezier(0.16,1,0.3,1)] hover:-translate-y-2 hover:rotate-[-1deg] ${c.ring} hover:shadow-[0_20px_50px_-10px_rgba(0,0,0,0.5)]`}
               >
                 <div className="text-5xl transition-transform duration-[420ms] ease-[cubic-bezier(0.34,1.2,0.36,1)] group-hover:scale-125 group-hover:rotate-12">
                   {service.icon}

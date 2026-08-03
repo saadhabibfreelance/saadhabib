@@ -28,14 +28,14 @@ export function useStoryMotion(
       gsap.set([eyebrow, ...lines, para, cta], { y: 40, opacity: 0 });
       gsap.set(visual, { y: 60, opacity: 0, scale: 0.95 });
 
+      // Entrance plays on its own clock (never mid-scrub / half-visible),
+      // so chapter copy is fully readable for the whole time it is on screen.
       const tl = gsap.timeline({
         defaults: { ease: EASE.glide },
         scrollTrigger: {
           trigger: el,
-          start: "top 70%",
-          end: "top 20%",
-          scrub: reduce ? false : 0.8,
-          toggleActions: reduce ? "play none none reverse" : undefined,
+          start: "top 75%",
+          toggleActions: "play none none reverse",
         },
       });
       tl.to(eyebrow, { y: 0, opacity: 1, duration: DUR.fast })
@@ -44,13 +44,15 @@ export function useStoryMotion(
         .to(cta, { y: 0, opacity: 1, duration: DUR.fast }, "-=0.55")
         .to(visual, { y: 0, opacity: 1, scale: 1, duration: DUR.slow, ease: EASE.reveal }, "-=0.95");
 
-      if (i < list.length - 1 && !reduce) {
+      // Gentle hand-off to the next chapter — desktop only, and late enough
+      // that the section never sits empty while it still fills the viewport.
+      if (i < list.length - 1 && !reduce && !isMobile) {
         gsap.to([eyebrow, ...lines, para, cta, visual], {
-          y: -50,
+          y: -32,
           opacity: 0,
-          scale: 0.96,
+          scale: 0.98,
           ease: EASE.none,
-          scrollTrigger: { trigger: el, start: "bottom 70%", end: "bottom 20%", scrub: 0.8 },
+          scrollTrigger: { trigger: el, start: "bottom 25%", end: "bottom top", scrub: 0.8 },
         });
       }
 

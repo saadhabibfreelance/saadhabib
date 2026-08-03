@@ -83,14 +83,12 @@ export const Hero = memo(function Hero() {
 
           <h1
             ref={refs.headline}
-            className="mt-8 font-[Space_Grotesk,ui-sans-serif] text-[clamp(3rem,7vw,6.5rem)] font-extrabold leading-[0.95] tracking-[-0.03em] text-white"
+            className="hero-headline mt-8 text-balance font-[Space_Grotesk,ui-sans-serif] text-[clamp(2.5rem,5.4vw,5rem)] font-extrabold leading-[0.98] tracking-[-0.03em] text-white"
           >
             Freelance work,{" "}
-            <span className="bg-gradient-to-r from-[#7B5CFF] via-[#00C2FF] to-[#4ADE80] bg-clip-text text-transparent">
-              engineered
-            </span>{" "}
-            for teams that ship.
+            <span className="hero-grad">engineered</span> for teams that ship.
           </h1>
+
 
           <p ref={refs.sub} className="mt-8 max-w-xl text-lg leading-relaxed text-[#94A3B8] md:text-xl">
             I'm Saad Habib — a senior freelance operator delivering data, leads and e-commerce work with the polish of a

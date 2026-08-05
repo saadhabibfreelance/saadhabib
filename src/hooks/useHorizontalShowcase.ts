@@ -115,6 +115,8 @@ export function useHorizontalShowcase(
   }, [section, viewport, track, count]);
 
   const goTo = useCallback((i: number) => goToRef.current(i), []);
+  const activeRef = useRef(0);
+  activeRef.current = active;
 
   useEffect(() => {
     const el = section.current;
@@ -134,9 +136,6 @@ export function useHorizontalShowcase(
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
   }, [section]);
-
-  const activeRef = useRef(0);
-  activeRef.current = active;
 
   return { active, goTo };
 }

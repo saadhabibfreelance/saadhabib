@@ -11,6 +11,7 @@ export function useSmoothScroll() {
       destroy: () => void;
       raf: (t: number) => void;
       on: (e: string, cb: () => void) => void;
+      scrollTo: (target: number, opts?: Record<string, unknown>) => void;
     };
     let lenis: LenisLike | null = null;
     let raf = 0;
@@ -25,12 +26,14 @@ export function useSmoothScroll() {
         smoothWheel: true,
       }) as unknown as LenisLike;
       lenis.on("scroll", () => ScrollTrigger.update());
+      (window as unknown as { __lenis?: LenisLike }).__lenis = lenis;
       const loop = (time: number) => {
         lenis?.raf(time);
         raf = requestAnimationFrame(loop);
       };
       raf = requestAnimationFrame(loop);
     })();
+
 
     return () => {
       cancelled = true;

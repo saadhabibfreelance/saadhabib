@@ -19,9 +19,10 @@ function ServicesPage() {
     <main className="pt-24 text-white">
       <section className="px-4 py-12 sm:px-6 lg:px-8 lg:py-16">
         <div className="mx-auto max-w-4xl text-center">
-          <h1 data-reveal="split" className="text-4xl font-bold tracking-tight text-white sm:text-5xl">Freelance services</h1>
+          <span className="text-[0.7rem] font-medium uppercase tracking-[0.35em] text-[#C8A96A]">Fivup Leads &amp; Ecommerce</span>
+          <h1 data-reveal="split" className="mt-3 text-4xl font-semibold tracking-tight text-white sm:text-5xl">Services &amp; expertise</h1>
           <p data-reveal="fade" data-reveal-delay="0.2" className="mt-4 text-lg text-white/70">
-            A complete range of remote support services to help your business grow without the overhead.
+            Twenty disciplines across ecommerce, data, digital and AI — delivered by one accountable team.
           </p>
         </div>
       </section>

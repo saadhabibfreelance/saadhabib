@@ -65,7 +65,7 @@ export function Footer() {
             <h2 className="mt-6 text-4xl font-black leading-[1.05] tracking-tight text-white sm:text-6xl">
               Clean data, real leads,
               <br />
-              <span className="bg-gradient-to-r from-[#C8A96A] via-[#C8A96A] to-[#F857A6] bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-[#C8A96A] via-[#C8A96A] to-[#8C8377] bg-clip-text text-transparent">
                 stores that convert.
               </span>
             </h2>
@@ -100,7 +100,7 @@ export function Footer() {
                 </button>
               </form>
               {sent && (
-                <p className="mt-3 text-sm text-[#92FE9D]">Thanks — you're on the list.</p>
+                <p className="mt-3 text-sm text-[#C8A96A]">Thanks — you're on the list.</p>
               )}
             </div>
 

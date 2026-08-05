@@ -33,6 +33,7 @@ export function useHorizontalShowcase(
 
     const reduce = prefersReducedMotion();
     const isMobile = window.matchMedia("(max-width: 767px)").matches;
+    const teardown: Array<() => void> = [];
     const ctx = gsap.context(() => {
       const cards = Array.from(trackEl.querySelectorAll<HTMLElement>("[data-card]"));
       if (!cards.length) return;
@@ -69,7 +70,7 @@ export function useHorizontalShowcase(
           const card = cards[Math.max(0, Math.min(cards.length - 1, i))];
           if (card) card.scrollIntoView({ behavior: "smooth", inline: "center", block: "nearest" });
         };
-        ctx.add(() => () => viewportEl.removeEventListener("scroll", paint));
+        teardown.push(() => viewportEl.removeEventListener("scroll", paint));
         return;
       }
 
@@ -111,7 +112,10 @@ export function useHorizontalShowcase(
       paint();
     }, sectionEl);
 
-    return () => ctx.revert();
+    return () => {
+      teardown.forEach((fn) => fn());
+      ctx.revert();
+    };
   }, [section, viewport, track, count]);
 
   const goTo = useCallback((i: number) => goToRef.current(i), []);

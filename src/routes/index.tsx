@@ -7,7 +7,10 @@ const About = lazy(() => import("../components/home/About").then((m) => ({ defau
 const Statistics = lazy(() =>
   import("../components/home/Statistics").then((m) => ({ default: m.Statistics })),
 );
-const Features = lazy(() => import("../components/home/Features").then((m) => ({ default: m.Features })));
+const ServicesShowcase = lazy(() =>
+  import("../components/home/ServicesShowcase").then((m) => ({ default: m.ServicesShowcase })),
+);
+const Skills = lazy(() => import("../components/home/Skills").then((m) => ({ default: m.Skills })));
 const Process = lazy(() => import("../components/home/Process").then((m) => ({ default: m.Process })));
 const Testimonials = lazy(() =>
   import("../components/home/Testimonials").then((m) => ({ default: m.Testimonials })),
@@ -44,7 +47,8 @@ function Index() {
         <Story />
         <About />
         <Statistics />
-        <Features />
+        <ServicesShowcase />
+        <Skills />
         <Process />
         <Testimonials />
         <CTA />

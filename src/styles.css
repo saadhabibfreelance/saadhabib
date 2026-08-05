@@ -213,12 +213,12 @@
 @property --amb-a {
   syntax: "<color>";
   inherits: true;
-  initial-value: #7b5cff;
+  initial-value: #F5F1EA;
 }
 @property --amb-b {
   syntax: "<color>";
   inherits: true;
-  initial-value: #00c2ff;
+  initial-value: #C8A96A;
 }
 @property --amb-angle {
   syntax: "<angle>";
@@ -345,7 +345,7 @@
 .hero-grad,
 .hero-headline .hero-grad .word,
 .hero-headline .hero-grad {
-  background-image: linear-gradient(90deg, #7b5cff, #00c2ff, #4ade80);
+  background-image: linear-gradient(90deg, #F5F1EA, #C8A96A, #B9B4AC);
   background-clip: text;
   color: transparent;
 }
@@ -358,7 +358,7 @@
 /* ---------- Global focus + interaction polish ---------- */
 @layer base {
   :where(a, button, input, textarea, select, [tabindex]):focus-visible {
-    outline: 2px solid color-mix(in srgb, #00c2ff 85%, transparent);
+    outline: 2px solid color-mix(in srgb, #C8A96A 85%, transparent);
     outline-offset: 3px;
     border-radius: 8px;
   }

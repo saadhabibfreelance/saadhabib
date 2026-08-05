@@ -213,7 +213,7 @@ export function Header() {
             >
               <span
                 ref={logoMarkRef}
-                className="flex h-9 w-9 items-center justify-center rounded-xl bg-gradient-to-br from-[#7B5CFF] to-[#00C2FF] text-sm font-extrabold text-white shadow-[0_0_24px_-4px_rgba(123,92,255,0.9)] transition-transform duration-500 group-hover:scale-110"
+                className="flex h-9 w-9 items-center justify-center rounded-xl bg-gradient-to-br from-[#F5F1EA] to-[#C8A96A] text-sm font-extrabold text-white shadow-[0_0_24px_-4px_rgba(123,92,255,0.9)] transition-transform duration-500 group-hover:scale-110"
                 style={{ fontFamily: "Space Grotesk, ui-sans-serif" }}
               >
                 SH
@@ -237,7 +237,7 @@ export function Header() {
                 >
                   {s.label}
                   <span
-                    className={`absolute inset-x-3 -bottom-0.5 h-px origin-left bg-gradient-to-r from-[#7B5CFF] to-[#00C2FF] transition-transform duration-500 ease-out ${
+                    className={`absolute inset-x-3 -bottom-0.5 h-px origin-left bg-gradient-to-r from-[#F5F1EA] to-[#C8A96A] transition-transform duration-500 ease-out ${
                       active === s.id ? "scale-x-100" : "scale-x-0 group-hover:scale-x-100"
                     }`}
                   />
@@ -249,7 +249,7 @@ export function Header() {
               <a
                 ref={ctaRef}
                 href="mailto:saadhabibwebsite@gmail.com"
-                className="relative hidden overflow-hidden rounded-xl bg-gradient-to-r from-[#7B5CFF] to-[#00C2FF] px-5 py-2.5 text-[13px] font-semibold text-white shadow-[0_0_28px_-6px_rgba(123,92,255,0.95)] transition-shadow duration-500 hover:shadow-[0_0_46px_-4px_rgba(0,194,255,0.95)] sm:inline-flex"
+                className="relative hidden overflow-hidden rounded-xl bg-gradient-to-r from-[#F5F1EA] to-[#C8A96A] px-5 py-2.5 text-[13px] font-semibold text-white shadow-[0_0_28px_-6px_rgba(123,92,255,0.95)] transition-shadow duration-500 hover:shadow-[0_0_46px_-4px_rgba(0,194,255,0.95)] sm:inline-flex"
               >
                 <span className="relative z-10">Get in touch</span>
                 <span className="absolute inset-0 -translate-x-full bg-white/25 transition-transform duration-700 hover:translate-x-full" />
@@ -278,15 +278,15 @@ export function Header() {
         aria-modal="true"
         aria-label="Navigation menu"
       >
-        <div className="pointer-events-none absolute -left-32 top-10 h-80 w-80 rounded-full bg-[#7B5CFF]/30 blur-3xl" />
-        <div className="pointer-events-none absolute -right-24 bottom-0 h-96 w-96 rounded-full bg-[#00C2FF]/20 blur-3xl" />
+        <div className="pointer-events-none absolute -left-32 top-10 h-80 w-80 rounded-full bg-[#F5F1EA]/30 blur-3xl" />
+        <div className="pointer-events-none absolute -right-24 bottom-0 h-96 w-96 rounded-full bg-[#C8A96A]/20 blur-3xl" />
 
         <div className="relative flex items-center justify-between px-6 pt-6 sm:px-10">
           <span className="text-sm font-semibold uppercase tracking-[0.3em] text-white/50">Menu</span>
           <button
             onClick={() => setOpen(false)}
             aria-label="Close menu"
-            className="group inline-flex h-12 w-12 items-center justify-center rounded-2xl border border-white/10 bg-white/5 text-white transition-colors hover:border-[#FF5A5A]/60 hover:bg-[#FF5A5A]/10"
+            className="group inline-flex h-12 w-12 items-center justify-center rounded-2xl border border-white/10 bg-white/5 text-white transition-colors hover:border-[#8C8377]/60 hover:bg-[#8C8377]/10"
           >
             <span ref={closeIconRef} className="block transition-transform duration-500 group-hover:rotate-90">
               <X className="h-6 w-6" />
@@ -300,7 +300,7 @@ export function Header() {
               <Link
                 to={p.to}
                 onClick={() => setOpen(false)}
-                className="block py-2 text-[13vw] font-extrabold leading-[1.05] tracking-tight text-white transition-colors hover:text-[#7B5CFF] sm:text-6xl"
+                className="block py-2 text-[13vw] font-extrabold leading-[1.05] tracking-tight text-white transition-colors hover:text-[#F5F1EA] sm:text-6xl"
                 style={{ fontFamily: "Space Grotesk, ui-sans-serif" }}
               >
                 {p.label}
@@ -313,7 +313,7 @@ export function Header() {
                 <button
                   onClick={() => goSection(s.id)}
                   className={`block py-1 text-left text-lg font-medium tracking-tight transition-colors ${
-                    active === s.id ? "text-[#00C2FF]" : "text-white/55 hover:text-white"
+                    active === s.id ? "text-[#C8A96A]" : "text-white/55 hover:text-white"
                   }`}
                 >
                   {s.label}
@@ -325,7 +325,7 @@ export function Header() {
         <div data-nav-item className="relative flex flex-wrap items-center gap-3 px-6 pb-10 sm:px-10">
           <a
             href="mailto:saadhabibwebsite@gmail.com"
-            className="inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-[#7B5CFF] to-[#00C2FF] px-5 py-3 text-sm font-semibold text-white shadow-[0_0_30px_-6px_rgba(123,92,255,0.9)]"
+            className="inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-[#F5F1EA] to-[#C8A96A] px-5 py-3 text-sm font-semibold text-white shadow-[0_0_30px_-6px_rgba(123,92,255,0.9)]"
           >
             <Mail className="h-4 w-4" /> Email
           </a>

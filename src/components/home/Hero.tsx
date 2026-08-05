@@ -65,7 +65,7 @@ export const Hero = memo(function Hero() {
         ref={refs.glow}
         aria-hidden
         className="pointer-events-none absolute right-[6%] top-1/2 -z-10 h-[560px] w-[560px] -translate-y-1/2 rounded-full opacity-70 blur-3xl"
-        style={{ background: "conic-gradient(from 200deg, #7B5CFF, #00C2FF, #4ADE80, #7B5CFF)" }}
+        style={{ background: "conic-gradient(from 200deg, #F5F1EA, #C8A96A, #B9B4AC, #F5F1EA)" }}
       />
 
       <div className="mx-auto grid w-full max-w-[1440px] grid-cols-1 items-center gap-16 px-5 py-24 md:px-8 lg:grid-cols-12 lg:gap-8 lg:px-20 lg:py-32">
@@ -75,8 +75,8 @@ export const Hero = memo(function Hero() {
             className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.04] px-4 py-1.5 text-xs font-medium tracking-wide text-white/80 backdrop-blur-xl"
           >
             <span className="relative flex h-2 w-2">
-              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[#4ADE80] opacity-75" />
-              <span className="relative inline-flex h-2 w-2 rounded-full bg-[#4ADE80]" />
+              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[#B9B4AC] opacity-75" />
+              <span className="relative inline-flex h-2 w-2 rounded-full bg-[#B9B4AC]" />
             </span>
             Available for new projects · 2026
           </div>
@@ -98,7 +98,7 @@ export const Hero = memo(function Hero() {
           <div ref={refs.cta} className="mt-10 flex flex-wrap items-center gap-4">
             <a
               href="#services"
-              className="group relative inline-flex items-center gap-2 overflow-hidden rounded-full bg-gradient-to-r from-[#7B5CFF] to-[#00C2FF] px-7 py-4 text-sm font-semibold text-white shadow-[0_10px_40px_-10px_rgba(123,92,255,0.7)] transition-transform duration-[420ms] ease-[cubic-bezier(0.16,1,0.3,1)] hover:scale-[1.03]"
+              className="group relative inline-flex items-center gap-2 overflow-hidden rounded-full bg-gradient-to-r from-[#F5F1EA] to-[#C8A96A] px-7 py-4 text-sm font-semibold text-white shadow-[0_10px_40px_-10px_rgba(123,92,255,0.7)] transition-transform duration-[420ms] ease-[cubic-bezier(0.16,1,0.3,1)] hover:scale-[1.03]"
             >
               <span className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/30 to-transparent transition-transform duration-[900ms] ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:translate-x-full" />
               Start a project
@@ -108,14 +108,14 @@ export const Hero = memo(function Hero() {
               href="mailto:saadhabibwebsite@gmail.com"
               className="group relative inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/[0.04] px-7 py-4 text-sm font-semibold text-white/90 backdrop-blur-xl transition-colors duration-300 hover:bg-white/[0.08]"
             >
-              <Sparkles className="h-4 w-4 text-[#00C2FF]" />
+              <Sparkles className="h-4 w-4 text-[#C8A96A]" />
               Get a quote
             </a>
           </div>
 
           <div ref={refs.logos} className="mt-14 flex flex-col gap-4 border-t border-white/[0.06] pt-8">
             <div className="flex items-center gap-2 text-xs uppercase tracking-[0.24em] text-white/50">
-              <ShieldCheck className="h-4 w-4 text-[#4ADE80]" />
+              <ShieldCheck className="h-4 w-4 text-[#B9B4AC]" />
               Trusted by 150+ founders and teams
             </div>
             <div className="flex flex-wrap items-center gap-x-8 gap-y-3">
@@ -140,9 +140,9 @@ export const Hero = memo(function Hero() {
             <div className="relative overflow-hidden rounded-[28px] border border-white/10 bg-white/[0.04] p-6 shadow-[0_30px_80px_-20px_rgba(0,0,0,0.6)] backdrop-blur-2xl">
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-2">
-                  <span className="h-2.5 w-2.5 rounded-full bg-[#FF5A5A]" />
+                  <span className="h-2.5 w-2.5 rounded-full bg-[#8C8377]" />
                   <span className="h-2.5 w-2.5 rounded-full bg-[#FFC857]" />
-                  <span className="h-2.5 w-2.5 rounded-full bg-[#4ADE80]" />
+                  <span className="h-2.5 w-2.5 rounded-full bg-[#B9B4AC]" />
                 </div>
                 <span className="text-[11px] uppercase tracking-widest text-white/40">Live preview</span>
               </div>
@@ -165,7 +165,7 @@ export const Hero = memo(function Hero() {
                   <div className="font-[Space_Grotesk,ui-sans-serif] text-lg font-bold text-white">Saad Habib</div>
                   <div className="text-xs text-white/50">Founder · Freelance Studio</div>
                 </div>
-                <div className="rounded-full border border-white/10 bg-white/[0.06] px-3 py-1 text-[11px] font-medium text-[#4ADE80]">
+                <div className="rounded-full border border-white/10 bg-white/[0.06] px-3 py-1 text-[11px] font-medium text-[#B9B4AC]">
                   ● Online
                 </div>
               </div>
@@ -186,7 +186,7 @@ export const Hero = memo(function Hero() {
             </div>
             <div className="absolute -bottom-5 -right-5 rounded-2xl border border-white/10 bg-white/[0.06] px-4 py-3 text-xs text-white/80 backdrop-blur-xl">
               <div className="flex items-center gap-2 font-semibold text-white">
-                <span className="h-2 w-2 rounded-full bg-[#4ADE80]" /> Shopify store live
+                <span className="h-2 w-2 rounded-full bg-[#B9B4AC]" /> Shopify store live
               </div>
               <div className="text-white/50">Deployed in 6 days</div>
             </div>

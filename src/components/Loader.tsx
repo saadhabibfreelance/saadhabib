@@ -112,7 +112,7 @@ export function Loader() {
       />
       <div className="relative flex flex-col items-center gap-10 px-6">
         <div ref={logoRef} className="flex items-center gap-4">
-          <span className="flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br from-[#7B5CFF] to-[#00C2FF] font-[Space_Grotesk,ui-sans-serif] text-xl font-black text-white shadow-[0_20px_50px_-10px_rgba(123,92,255,0.6)]">
+          <span className="flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br from-[#F5F1EA] to-[#C8A96A] font-[Space_Grotesk,ui-sans-serif] text-xl font-black text-white shadow-[0_20px_50px_-10px_rgba(123,92,255,0.6)]">
             SH
           </span>
           <span className="font-[Space_Grotesk,ui-sans-serif] text-2xl font-bold tracking-tight">
@@ -129,7 +129,7 @@ export function Loader() {
           <div className="h-px w-full overflow-hidden bg-white/10">
             <div
               ref={barRef}
-              className="h-full origin-left bg-gradient-to-r from-[#7B5CFF] via-[#00C2FF] to-[#4ADE80]"
+              className="h-full origin-left bg-gradient-to-r from-[#F5F1EA] via-[#C8A96A] to-[#B9B4AC]"
               style={{ transform: "scaleX(0)" }}
             />
           </div>

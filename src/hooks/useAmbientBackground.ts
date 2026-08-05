@@ -7,12 +7,12 @@ gsap.registerPlugin(ScrollTrigger);
 
 /** Section palettes — glow colour, gradient angle, blur intensity. */
 export const AMBIENT_THEMES = [
-  { a: "#7B5CFF", b: "#00C2FF", angle: 160, blur: 120 },
-  { a: "#00C9FF", b: "#92FE9D", angle: 205, blur: 140 },
-  { a: "#F09819", b: "#FF5858", angle: 130, blur: 110 },
-  { a: "#654EA3", b: "#EAAFC8", angle: 240, blur: 150 },
-  { a: "#4ADE80", b: "#00C2FF", angle: 100, blur: 130 },
-  { a: "#F857A6", b: "#FFC837", angle: 190, blur: 120 },
+  { a: "#C8A96A", b: "#4A4640", angle: 160, blur: 140 },
+  { a: "#8C8377", b: "#2A2724", angle: 205, blur: 150 },
+  { a: "#C8A96A", b: "#33302B", angle: 130, blur: 130 },
+  { a: "#6E6862", b: "#1F1D1B", angle: 240, blur: 150 },
+  { a: "#B79B62", b: "#2B2825", angle: 100, blur: 140 },
+  { a: "#7A736A", b: "#1A1918", angle: 190, blur: 130 },
 ] as const;
 
 type Refs = {

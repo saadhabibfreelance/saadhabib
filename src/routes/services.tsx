@@ -19,9 +19,10 @@ function ServicesPage() {
     <main className="pt-24 text-white">
       <section className="px-4 py-12 sm:px-6 lg:px-8 lg:py-16">
         <div className="mx-auto max-w-4xl text-center">
-          <h1 data-reveal="split" className="text-4xl font-bold tracking-tight text-white sm:text-5xl">Freelance services</h1>
+          <span className="text-[0.7rem] font-medium uppercase tracking-[0.35em] text-[#C8A96A]">Fivup Leads &amp; Ecommerce</span>
+          <h1 data-reveal="split" className="mt-3 text-4xl font-semibold tracking-tight text-white sm:text-5xl">Services &amp; expertise</h1>
           <p data-reveal="fade" data-reveal-delay="0.2" className="mt-4 text-lg text-white/70">
-            A complete range of remote support services to help your business grow without the overhead.
+            Twenty disciplines across ecommerce, data, digital and AI — delivered by one accountable team.
           </p>
         </div>
       </section>
@@ -37,7 +38,9 @@ function ServicesPage() {
                 data-reveal-delay={String((i % 3) * 0.08)}
                 className="group flex flex-col rounded-2xl border border-white/15 bg-white/[0.06] backdrop-blur-xl p-6 shadow-sm transition-all duration-500 hover:-translate-y-2 hover:rotate-[0.5deg] hover:border-gold hover:bg-white/[0.1] hover:shadow-[0_25px_50px_-15px_rgba(0,0,0,0.25)]"
               >
-                <div className="text-4xl transition-transform duration-500 group-hover:scale-110 group-hover:-rotate-6">{service.icon}</div>
+                <span className="grid h-12 w-12 place-items-center rounded-xl border border-[hsl(0_0%_100%/0.12)] text-[#C8A96A] transition-transform duration-500 group-hover:scale-110">
+                  <service.Icon className="h-5 w-5" strokeWidth={1.5} />
+                </span>
                 <h2 className="mt-4 text-2xl font-semibold text-white">{service.title}</h2>
                 <p className="mt-2 text-white/70">{service.description}</p>
                 <ul className="mt-5 flex-1 space-y-2">

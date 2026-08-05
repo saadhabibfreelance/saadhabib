@@ -65,7 +65,7 @@ export function Footer() {
             <h2 className="mt-6 text-4xl font-black leading-[1.05] tracking-tight text-white sm:text-6xl">
               Clean data, real leads,
               <br />
-              <span className="bg-gradient-to-r from-[#FFEE00] via-[#00C2FF] to-[#F857A6] bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-[#C8A96A] via-[#C8A96A] to-[#8C8377] bg-clip-text text-transparent">
                 stores that convert.
               </span>
             </h2>
@@ -93,14 +93,14 @@ export function Footer() {
                 <button
                   data-magnetic
                   type="submit"
-                  className="inline-flex shrink-0 items-center gap-1.5 rounded-full bg-[#FFEE00] px-5 py-2.5 text-sm font-bold text-[#0B0B14] transition-transform duration-300 hover:-translate-y-0.5"
+                  className="inline-flex shrink-0 items-center gap-1.5 rounded-full bg-[#C8A96A] px-5 py-2.5 text-sm font-bold text-[#0B0B14] transition-transform duration-300 hover:-translate-y-0.5"
                 >
                   Join
                   <ArrowRight className="h-4 w-4" />
                 </button>
               </form>
               {sent && (
-                <p className="mt-3 text-sm text-[#92FE9D]">Thanks — you're on the list.</p>
+                <p className="mt-3 text-sm text-[#C8A96A]">Thanks — you're on the list.</p>
               )}
             </div>
 

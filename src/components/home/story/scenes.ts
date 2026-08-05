@@ -23,7 +23,7 @@ export const scenes: Scene[] = [
     cta: "Explore data services",
     href: "/services#data-entry",
     gradient:
-      "radial-gradient(1200px 700px at 20% 20%, rgba(123,92,255,0.55), transparent 60%), radial-gradient(900px 700px at 80% 80%, rgba(0,194,255,0.35), transparent 60%), linear-gradient(135deg,#0B0F2A 0%,#1B0B3A 100%)",
+      "radial-gradient(1200px 700px at 20% 20%, rgba(200,169,106,0.18), transparent 60%), radial-gradient(900px 700px at 80% 80%, rgba(200,169,106,0.18), transparent 60%), linear-gradient(135deg,#0B0B0C 0%,#111112 100%)",
     glow1: "#F5F1EA",
     glow2: "#C8A96A",
     accent: "#C8A96A",
@@ -38,7 +38,7 @@ export const scenes: Scene[] = [
     cta: "See lead generation",
     href: "/services#lead-generation",
     gradient:
-      "radial-gradient(1000px 700px at 80% 20%, rgba(255,90,90,0.5), transparent 60%), radial-gradient(900px 700px at 20% 80%, rgba(255,200,71,0.4), transparent 60%), linear-gradient(135deg,#2A0A1F 0%,#3A1B0B 100%)",
+      "radial-gradient(1000px 700px at 80% 20%, rgba(200,169,106,0.18), transparent 60%), radial-gradient(900px 700px at 20% 80%, rgba(200,169,106,0.18), transparent 60%), linear-gradient(135deg,#0B0B0C 0%,#111112 100%)",
     glow1: "#FF5A5A",
     glow2: "#FFC847",
     accent: "#C8A96A",
@@ -53,7 +53,7 @@ export const scenes: Scene[] = [
     cta: "Explore email work",
     href: "/services#email-marketing",
     gradient:
-      "radial-gradient(1200px 700px at 30% 30%, rgba(74,222,128,0.45), transparent 60%), radial-gradient(900px 700px at 80% 70%, rgba(0,194,255,0.4), transparent 60%), linear-gradient(135deg,#062018 0%,#0A2A3A 100%)",
+      "radial-gradient(1200px 700px at 30% 30%, rgba(200,169,106,0.18), transparent 60%), radial-gradient(900px 700px at 80% 70%, rgba(200,169,106,0.18), transparent 60%), linear-gradient(135deg,#0B0B0C 0%,#111112 100%)",
     glow1: "#B9B4AC",
     glow2: "#C8A96A",
     accent: "#B9B4AC",
@@ -68,7 +68,7 @@ export const scenes: Scene[] = [
     cta: "See e-commerce work",
     href: "/services#ecommerce-store",
     gradient:
-      "radial-gradient(1000px 700px at 20% 20%, rgba(236,72,153,0.5), transparent 60%), radial-gradient(900px 700px at 80% 80%, rgba(123,92,255,0.45), transparent 60%), linear-gradient(135deg,#2A0A22 0%,#180A2A 100%)",
+      "radial-gradient(1000px 700px at 20% 20%, rgba(200,169,106,0.18), transparent 60%), radial-gradient(900px 700px at 80% 80%, rgba(200,169,106,0.18), transparent 60%), linear-gradient(135deg,#0B0B0C 0%,#111112 100%)",
     glow1: "#EC4899",
     glow2: "#F5F1EA",
     accent: "#EC4899",
@@ -83,7 +83,7 @@ export const scenes: Scene[] = [
     cta: "Start a project",
     href: "mailto:saadhabibwebsite@gmail.com",
     gradient:
-      "radial-gradient(1200px 700px at 50% 20%, rgba(0,194,255,0.5), transparent 60%), radial-gradient(900px 700px at 50% 80%, rgba(74,222,128,0.35), transparent 60%), linear-gradient(135deg,#050816 0%,#0A1830 100%)",
+      "radial-gradient(1200px 700px at 50% 20%, rgba(200,169,106,0.18), transparent 60%), radial-gradient(900px 700px at 50% 80%, rgba(200,169,106,0.18), transparent 60%), linear-gradient(135deg,#0B0B0C 0%,#111112 100%)",
     glow1: "#C8A96A",
     glow2: "#B9B4AC",
     accent: "#B9B4AC",

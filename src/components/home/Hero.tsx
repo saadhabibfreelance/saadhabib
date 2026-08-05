@@ -140,7 +140,7 @@ export const Hero = memo(function Hero() {
             <div className="relative overflow-hidden rounded-[28px] border border-white/10 bg-white/[0.04] p-6 shadow-[0_30px_80px_-20px_rgba(0,0,0,0.6)] backdrop-blur-2xl">
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-2">
-                  <span className="h-2.5 w-2.5 rounded-full bg-[#FF5A5A]" />
+                  <span className="h-2.5 w-2.5 rounded-full bg-[#8C8377]" />
                   <span className="h-2.5 w-2.5 rounded-full bg-[#FFC857]" />
                   <span className="h-2.5 w-2.5 rounded-full bg-[#B9B4AC]" />
                 </div>

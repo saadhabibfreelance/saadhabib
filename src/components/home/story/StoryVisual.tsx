@@ -21,7 +21,7 @@ const products = [
   { n: "Everyday Tote", p: "$48", a: "#F472B6", b: "#FFC847" },
   { n: "Studio Lamp", p: "$129", a: "#F5F1EA", b: "#C8A96A" },
   { n: "Minimal Chair", p: "$249", a: "#C8A96A", b: "#B9B4AC" },
-  { n: "Wall Clock", p: "$62", a: "#C8A96A", b: "#EC4899" },
+  { n: "Wall Clock", p: "$62", a: "#C8A96A", b: "#8C8377" },
 ];
 
 const timeline = [
@@ -45,7 +45,7 @@ export const StoryVisual = memo(function StoryVisual({ scene }: { scene: Scene }
       <div className="relative h-full w-full overflow-hidden rounded-[32px] border border-white/10 bg-white/[0.04] p-6 shadow-[0_30px_80px_-20px_rgba(0,0,0,0.6)] backdrop-blur-2xl">
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-2">
-            <span className="h-2.5 w-2.5 rounded-full bg-[#FF5A5A]" />
+            <span className="h-2.5 w-2.5 rounded-full bg-[#8C8377]" />
             <span className="h-2.5 w-2.5 rounded-full bg-[#FFC857]" />
             <span className="h-2.5 w-2.5 rounded-full bg-[#B9B4AC]" />
           </div>

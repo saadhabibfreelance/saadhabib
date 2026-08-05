@@ -286,7 +286,7 @@ export function Header() {
           <button
             onClick={() => setOpen(false)}
             aria-label="Close menu"
-            className="group inline-flex h-12 w-12 items-center justify-center rounded-2xl border border-white/10 bg-white/5 text-white transition-colors hover:border-[#FF5A5A]/60 hover:bg-[#FF5A5A]/10"
+            className="group inline-flex h-12 w-12 items-center justify-center rounded-2xl border border-white/10 bg-white/5 text-white transition-colors hover:border-[#8C8377]/60 hover:bg-[#8C8377]/10"
           >
             <span ref={closeIconRef} className="block transition-transform duration-500 group-hover:rotate-90">
               <X className="h-6 w-6" />

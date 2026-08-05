@@ -9,7 +9,7 @@ export const About = memo(function About() {
     <Section index={1} id="about">
       <div className="grid items-center gap-12 md:grid-cols-2">
         <div data-reveal="zoom" className="relative mx-auto w-full max-w-sm">
-          <div className="absolute -inset-6 rounded-[2rem] bg-gradient-to-br from-[#FFD93D] to-[#FF6B6B] blur-2xl opacity-70" />
+          <div className="absolute -inset-6 rounded-[2rem] bg-gradient-to-br from-[#C8A96A] to-[#1A1918] blur-2xl opacity-70" />
           <div className="relative overflow-hidden rounded-[2rem] border-4 border-white/80 bg-white shadow-2xl">
             <img
               data-cursor="image"
@@ -24,7 +24,7 @@ export const About = memo(function About() {
           </div>
         </div>
         <div className="text-white">
-          <span data-reveal="fade" className="text-sm font-bold uppercase tracking-[0.2em] text-[#FFD93D]">
+          <span data-reveal="fade" className="text-sm font-bold uppercase tracking-[0.2em] text-[#C8A96A]">
             Meet the founder
           </span>
           <h2 data-reveal="split" className="mt-3 text-4xl font-black tracking-tight text-white sm:text-6xl">
@@ -52,7 +52,7 @@ export const About = memo(function About() {
             <a
               data-magnetic
               href="mailto:saadhabibwebsite@gmail.com"
-              className="inline-flex items-center gap-2 rounded-full bg-[#FFD93D] px-6 py-3.5 text-sm font-bold text-[#1A1A2E] shadow-lg transition-transform duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] hover:-translate-y-1"
+              className="inline-flex items-center gap-2 rounded-full bg-[#C8A96A] px-6 py-3.5 text-sm font-bold text-[#0B0B0C] shadow-lg transition-transform duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] hover:-translate-y-1"
             >
               Work with me
               <ArrowRight className="h-4 w-4" />

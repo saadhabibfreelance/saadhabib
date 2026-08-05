@@ -3,10 +3,10 @@ import { Clock, Shield, Star, Zap } from "lucide-react";
 import { Section } from "./Section";
 
 const steps = [
-  { icon: Zap, title: "Discuss", text: "Tell me what you need over email or a quick call.", color: "bg-[#FF6B6B]" },
-  { icon: Shield, title: "Quote", text: "I send a clear scope, price, and timeline.", color: "bg-[#4ECDC4]" },
-  { icon: Clock, title: "Deliver", text: "I execute the work with daily updates.", color: "bg-[#FFD93D] text-[#1A1A2E]" },
-  { icon: Star, title: "Refine", text: "Revisions until you're fully satisfied.", color: "bg-[#845EC2]" },
+  { icon: Zap, title: "Discuss", text: "Tell me what you need over email or a quick call.", color: "bg-[#1A1918]" },
+  { icon: Shield, title: "Quote", text: "I send a clear scope, price, and timeline.", color: "bg-[#2A2724]" },
+  { icon: Clock, title: "Deliver", text: "I execute the work with daily updates.", color: "bg-[#C8A96A] text-[#0B0B0C]" },
+  { icon: Star, title: "Refine", text: "Revisions until you're fully satisfied.", color: "bg-[#242220]" },
 ];
 
 export const Process = memo(function Process() {
@@ -15,7 +15,7 @@ export const Process = memo(function Process() {
       <div className="text-white">
         <div className="text-center">
           <h2 data-reveal="blur" className="text-4xl font-black tracking-tight sm:text-6xl">
-            How we <span className="text-[#FFD93D]">work</span>.
+            How we <span className="text-[#C8A96A]">work</span>.
           </h2>
           <p data-reveal="fade" data-reveal-delay="0.16" className="mt-4 text-lg text-white/85">
             Transparent, simple, and fast — from first message to final delivery.

@@ -7,19 +7,19 @@ const testimonials = [
     name: "Ahmed R.",
     role: "E-commerce Owner",
     text: "Saad rebuilt my Shopify store and cleaned up thousands of product listings. Looks great and converts better.",
-    color: "bg-[#FF6B6B]",
+    color: "bg-[#1A1918]",
   },
   {
     name: "Sarah L.",
     role: "Sales Manager",
     text: "The B2B lead list was clean, verified, and delivered on time. Highly recommend.",
-    color: "bg-[#FFD93D] text-[#1A1A2E]",
+    color: "bg-[#C8A96A] text-[#0B0B0C]",
   },
   {
     name: "James K.",
     role: "Marketing Consultant",
     text: "Reliable, communicative, and fast. My go-to for data entry and email cleaning.",
-    color: "bg-[#4ECDC4]",
+    color: "bg-[#2A2724]",
   },
 ];
 
@@ -29,7 +29,7 @@ export const Testimonials = memo(function Testimonials() {
       <div className="text-white">
         <div className="text-center">
           <h2 data-reveal="split" className="text-4xl font-black tracking-tight text-white sm:text-6xl">
-            Loved by <span className="text-[#43CEA2]">clients</span>.
+            Loved by <span className="text-[#C8A96A]">clients</span>.
           </h2>
         </div>
         <div className="mt-14 grid gap-6 md:grid-cols-3">

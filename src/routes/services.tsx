@@ -37,7 +37,9 @@ function ServicesPage() {
                 data-reveal-delay={String((i % 3) * 0.08)}
                 className="group flex flex-col rounded-2xl border border-white/15 bg-white/[0.06] backdrop-blur-xl p-6 shadow-sm transition-all duration-500 hover:-translate-y-2 hover:rotate-[0.5deg] hover:border-gold hover:bg-white/[0.1] hover:shadow-[0_25px_50px_-15px_rgba(0,0,0,0.25)]"
               >
-                <div className="text-4xl transition-transform duration-500 group-hover:scale-110 group-hover:-rotate-6">{service.icon}</div>
+                <span className="grid h-12 w-12 place-items-center rounded-xl border border-[hsl(0_0%_100%/0.12)] text-[#C8A96A] transition-transform duration-500 group-hover:scale-110">
+                  <service.Icon className="h-5 w-5" strokeWidth={1.5} />
+                </span>
                 <h2 className="mt-4 text-2xl font-semibold text-white">{service.title}</h2>
                 <p className="mt-2 text-white/70">{service.description}</p>
                 <ul className="mt-5 flex-1 space-y-2">

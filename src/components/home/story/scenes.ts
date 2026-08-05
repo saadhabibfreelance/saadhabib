@@ -39,8 +39,8 @@ export const scenes: Scene[] = [
     href: "/services#lead-generation",
     gradient:
       "radial-gradient(1000px 700px at 80% 20%, rgba(200,169,106,0.18), transparent 60%), radial-gradient(900px 700px at 20% 80%, rgba(200,169,106,0.18), transparent 60%), linear-gradient(135deg,#0B0B0C 0%,#111112 100%)",
-    glow1: "#FF5A5A",
-    glow2: "#FFC847",
+    glow1: "#F5F1EA",
+    glow2: "#8C8377",
     accent: "#C8A96A",
     Icon: Target,
     visual: "leads",
@@ -69,9 +69,9 @@ export const scenes: Scene[] = [
     href: "/services#ecommerce-store",
     gradient:
       "radial-gradient(1000px 700px at 20% 20%, rgba(200,169,106,0.18), transparent 60%), radial-gradient(900px 700px at 80% 80%, rgba(200,169,106,0.18), transparent 60%), linear-gradient(135deg,#0B0B0C 0%,#111112 100%)",
-    glow1: "#EC4899",
+    glow1: "#F5F1EA",
     glow2: "#F5F1EA",
-    accent: "#EC4899",
+    accent: "#C8A96A",
     Icon: ShoppingBag,
     visual: "store",
   },

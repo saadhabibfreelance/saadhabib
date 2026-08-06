@@ -201,7 +201,7 @@ export function Header() {
           <div
             className={`pointer-events-auto flex items-center justify-between gap-4 rounded-2xl border px-4 py-2.5 backdrop-blur-xl transition-[background-color,border-color,box-shadow,padding] duration-500 sm:px-5 ${
               scrolled
-                ? "border-white/12 bg-[#060816]/70 shadow-[0_18px_50px_-20px_rgba(123,92,255,0.55)]"
+                ? "border-white/12 bg-[#060607]/75 shadow-[0_18px_50px_-20px_rgba(0,0,0,0.7)]"
                 : "border-white/8 bg-white/[0.04] shadow-none"
             }`}
           >
@@ -213,7 +213,7 @@ export function Header() {
             >
               <span
                 ref={logoMarkRef}
-                className="flex h-9 w-9 items-center justify-center rounded-xl bg-gradient-to-br from-[#F5F1EA] to-[#C8A96A] text-sm font-extrabold text-white shadow-[0_0_24px_-4px_rgba(123,92,255,0.9)] transition-transform duration-500 group-hover:scale-110"
+                className="flex h-9 w-9 items-center justify-center rounded-xl bg-[#F5F1EA] text-sm font-extrabold text-[#0B0B0C] shadow-[0_0_24px_-4px_rgba(127,216,232,0.45)] transition-transform duration-500 group-hover:scale-110"
                 style={{ fontFamily: "Space Grotesk, ui-sans-serif" }}
               >
                 SH
@@ -237,7 +237,7 @@ export function Header() {
                 >
                   {s.label}
                   <span
-                    className={`absolute inset-x-3 -bottom-0.5 h-px origin-left bg-gradient-to-r from-[#F5F1EA] to-[#C8A96A] transition-transform duration-500 ease-out ${
+                    className={`absolute inset-x-3 -bottom-0.5 h-px origin-left bg-[#F5F1EA] transition-transform duration-500 ease-out ${
                       active === s.id ? "scale-x-100" : "scale-x-0 group-hover:scale-x-100"
                     }`}
                   />
@@ -249,7 +249,7 @@ export function Header() {
               <a
                 ref={ctaRef}
                 href="mailto:saadhabibwebsite@gmail.com"
-                className="relative hidden overflow-hidden rounded-xl bg-gradient-to-r from-[#F5F1EA] to-[#C8A96A] px-5 py-2.5 text-[13px] font-semibold text-white shadow-[0_0_28px_-6px_rgba(123,92,255,0.95)] transition-shadow duration-500 hover:shadow-[0_0_46px_-4px_rgba(0,194,255,0.95)] sm:inline-flex"
+                className="relative hidden overflow-hidden rounded-xl bg-[#F5F1EA] px-5 py-2.5 text-[13px] font-semibold text-[#0B0B0C] shadow-[0_0_28px_-6px_rgba(127,216,232,0.45)] transition-shadow duration-500 hover:shadow-[0_0_46px_-4px_rgba(127,216,232,0.35)] sm:inline-flex"
               >
                 <span className="relative z-10">Get in touch</span>
                 <span className="absolute inset-0 -translate-x-full bg-white/25 transition-transform duration-700 hover:translate-x-full" />
@@ -325,13 +325,13 @@ export function Header() {
         <div data-nav-item className="relative flex flex-wrap items-center gap-3 px-6 pb-10 sm:px-10">
           <a
             href="mailto:saadhabibwebsite@gmail.com"
-            className="inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-[#F5F1EA] to-[#C8A96A] px-5 py-3 text-sm font-semibold text-white shadow-[0_0_30px_-6px_rgba(123,92,255,0.9)]"
+            className="inline-flex items-center gap-2 rounded-xl bg-[#F5F1EA] px-5 py-3 text-sm font-semibold text-[#0B0B0C] shadow-[0_0_30px_-6px_rgba(127,216,232,0.45)]"
           >
             <Mail className="h-4 w-4" /> Email
           </a>
           <a
             href="tel:+923002019194"
-            className="inline-flex items-center gap-2 rounded-xl border border-white/12 bg-white/5 px-5 py-3 text-sm font-semibold text-white"
+            className="inline-flex items-center gap-2 rounded-xl border border-white/12 bg-white/5 px-5 py-3 text-sm font-semibold text-[#0B0B0C]"
           >
             <Phone className="h-4 w-4" /> Call
           </a>

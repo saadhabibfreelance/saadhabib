@@ -107,12 +107,12 @@ export function Loader() {
         className="pointer-events-none absolute inset-0"
         style={{
           background:
-            "radial-gradient(700px 480px at 50% 50%, rgba(123,92,255,0.45), transparent 65%), radial-gradient(500px 380px at 65% 60%, rgba(0,194,255,0.28), transparent 70%)",
+            "radial-gradient(700px 480px at 50% 50%, rgba(127,216,232,0.45), transparent 65%), radial-gradient(500px 380px at 65% 60%, rgba(127,216,232,0.35), transparent 70%)",
         }}
       />
       <div className="relative flex flex-col items-center gap-10 px-6">
         <div ref={logoRef} className="flex items-center gap-4">
-          <span className="flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br from-[#F5F1EA] to-[#C8A96A] font-[Space_Grotesk,ui-sans-serif] text-xl font-black text-white shadow-[0_20px_50px_-10px_rgba(123,92,255,0.6)]">
+          <span className="flex h-14 w-14 items-center justify-center rounded-2xl bg-[#F5F1EA] font-[Space_Grotesk,ui-sans-serif] text-xl font-black text-[#0B0B0C] shadow-[0_20px_50px_-10px_rgba(127,216,232,0.45)]">
             SH
           </span>
           <span className="font-[Space_Grotesk,ui-sans-serif] text-2xl font-bold tracking-tight">

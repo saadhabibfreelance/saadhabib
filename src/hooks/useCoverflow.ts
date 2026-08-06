@@ -19,9 +19,8 @@ export function useCoverflow(count: number, autoMs = 5200) {
   const go = useCallback(
     (delta: number) => {
       target.current += delta;
-      setIndex(((Math.round(target.current) % count) + count) % count);
     },
-    [count],
+    [],
   );
 
   const goTo = useCallback(
@@ -45,11 +44,13 @@ export function useCoverflow(count: number, autoMs = 5200) {
       pos.current += reduce ? diff : diff * 0.085;
       if (Math.abs(diff) < 0.0004) pos.current = target.current;
       setPosition((p) => (Math.abs(p - pos.current) < 0.0004 ? p : pos.current));
+      const nearest = ((Math.round(pos.current) % count) + count) % count;
+      setIndex((prev) => (prev === nearest ? prev : nearest));
       raf = requestAnimationFrame(loop);
     };
     raf = requestAnimationFrame(loop);
     return () => cancelAnimationFrame(raf);
-  }, []);
+  }, [count]);
 
   /* auto rotation */
   useEffect(() => {
@@ -81,7 +82,6 @@ export function useCoverflow(count: number, autoMs = 5200) {
       if (!dragging.current) return;
       dragging.current = false;
       target.current = Math.round(target.current);
-      setIndex(((Math.round(target.current) % count) + count) % count);
       window.removeEventListener("pointermove", onMove);
       window.removeEventListener("pointerup", onUp);
     };

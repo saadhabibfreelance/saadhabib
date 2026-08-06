@@ -24,14 +24,14 @@ export const Hero = memo(function Hero() {
   return (
     <section
       ref={refs.root}
-      className="relative isolate flex min-h-[100svh] w-full items-center overflow-hidden bg-[#060816]/60 text-white"
+      className="relative isolate flex min-h-[100svh] w-full items-center overflow-hidden bg-[#060607] text-white"
     >
       <div
         aria-hidden
         className="pointer-events-none absolute inset-0 -z-10"
         style={{
           background:
-            "radial-gradient(1200px 700px at 15% 20%, rgba(123,92,255,0.35), transparent 60%), radial-gradient(900px 600px at 85% 30%, rgba(0,194,255,0.28), transparent 65%), radial-gradient(1000px 700px at 60% 100%, rgba(74,222,128,0.15), transparent 60%)",
+            "radial-gradient(1200px 700px at 15% 20%, rgba(127,216,232,0.10), transparent 62%), radial-gradient(900px 600px at 85% 30%, rgba(255,255,255,0.05), transparent 65%), radial-gradient(1000px 700px at 60% 100%, rgba(200,169,106,0.07), transparent 60%)",
         }}
       />
       <div
@@ -64,8 +64,8 @@ export const Hero = memo(function Hero() {
       <div
         ref={refs.glow}
         aria-hidden
-        className="pointer-events-none absolute right-[6%] top-1/2 -z-10 h-[560px] w-[560px] -translate-y-1/2 rounded-full opacity-70 blur-3xl"
-        style={{ background: "conic-gradient(from 200deg, #F5F1EA, #C8A96A, #B9B4AC, #F5F1EA)" }}
+        className="pointer-events-none absolute right-[6%] top-1/2 -z-10 h-[560px] w-[560px] -translate-y-1/2 rounded-full opacity-40 blur-3xl"
+        style={{ background: "conic-gradient(from 200deg, #1A1A1C, #7FD8E8, #3A3A3D, #1A1A1C)" }}
       />
 
       <div className="mx-auto grid w-full max-w-[1440px] grid-cols-1 items-center gap-16 px-5 py-24 md:px-8 lg:grid-cols-12 lg:gap-8 lg:px-20 lg:py-32">

@@ -54,10 +54,10 @@ export function CustomCursor() {
         gsap.to(ring, { scale: 2.6, borderColor: "rgba(255,255,255,0.9)", backgroundColor: "rgba(255,255,255,0)", duration: 0.35, ease: "power3.out" });
         gsap.to(dot, { scale: 0, duration: 0.25 });
       } else if (mode === "image") {
-        gsap.to(ring, { scale: 3.4, borderColor: "rgba(255,255,255,0.9)", backgroundColor: "rgba(123,92,255,0.35)", duration: 0.4, ease: "power3.out" });
+        gsap.to(ring, { scale: 3.4, borderColor: "rgba(255,255,255,0.9)", backgroundColor: "rgba(127,216,232,0.35)", duration: 0.4, ease: "power3.out" });
         gsap.to(dot, { scale: 0, duration: 0.25 });
       } else {
-        gsap.to(ring, { scale: 1.8, borderColor: "rgba(123,92,255,0.9)", backgroundColor: "rgba(123,92,255,0.15)", duration: 0.35, ease: "power3.out" });
+        gsap.to(ring, { scale: 1.8, borderColor: "rgba(127,216,232,0.9)", backgroundColor: "rgba(127,216,232,0.15)", duration: 0.35, ease: "power3.out" });
         gsap.to(dot, { scale: 1.4, duration: 0.25 });
       }
     };

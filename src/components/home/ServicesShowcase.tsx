@@ -64,17 +64,26 @@ export const ServicesShowcase = memo(function ServicesShowcase() {
                 <article
                   key={service.id}
                   data-card
-                  className={`flex w-[18rem] shrink-0 snap-center flex-col justify-between rounded-2xl border p-7 backdrop-blur-sm transition-colors duration-500 sm:w-[26rem] sm:p-9 ${
+                  className={`group/card relative flex w-[18rem] shrink-0 snap-center flex-col justify-between overflow-hidden rounded-2xl border p-7 backdrop-blur-sm transition-[border-color,background-color,transform] duration-500 hover:-translate-y-1 hover:border-[hsl(190_60%_70%/0.35)] sm:w-[26rem] sm:p-9 ${
                     isActive
                       ? "border-[hsl(38_35%_60%/0.45)] bg-[hsl(40_10%_96%/0.05)] shadow-[0_40px_120px_-60px_rgba(0,0,0,0.9)]"
                       : "border-[hsl(0_0%_100%/0.08)] bg-[hsl(0_0%_100%/0.02)]"
                   }`}
                 >
+                  <span
+                    aria-hidden
+                    className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-700 group-hover/card:opacity-100"
+                    style={{
+                      background:
+                        "radial-gradient(500px 260px at 50% -10%, rgba(127,216,232,0.10), transparent 70%)",
+                    }}
+                  />
                   <div>
                     <div className="flex items-center justify-between">
-                      <span className="grid h-12 w-12 place-items-center rounded-xl border border-[hsl(0_0%_100%/0.1)] bg-[hsl(0_0%_100%/0.03)] text-[#C8A96A]">
+                      <span className="grid h-12 w-12 place-items-center rounded-xl border border-[hsl(0_0%_100%/0.1)] bg-[hsl(0_0%_100%/0.03)] text-[#C8A96A] transition-colors duration-500 group-hover/card:text-[#7FD8E8]">
                         <service.Icon className="h-5 w-5" strokeWidth={1.5} />
                       </span>
+
                       <span className="text-xs tabular-nums tracking-[0.25em] text-[#6F6B65]">
                         {String(i + 1).padStart(2, "0")}
                       </span>

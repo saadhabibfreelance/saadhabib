@@ -36,17 +36,26 @@ export const Skills = memo(function Skills() {
               <article
                 key={cat.id}
                 data-card
-                className={`flex w-[18rem] shrink-0 snap-center flex-col rounded-2xl border p-7 sm:w-[26rem] sm:p-9 transition-colors duration-500 ${
+                className={`group/card relative flex w-[18rem] shrink-0 snap-center flex-col overflow-hidden rounded-2xl border p-7 sm:w-[26rem] sm:p-9 transition-[border-color,background-color,transform] duration-500 hover:-translate-y-1 hover:border-[hsl(190_60%_70%/0.35)] ${
                   i === active
                     ? "border-[hsl(38_35%_60%/0.45)] bg-[hsl(40_10%_96%/0.05)]"
                     : "border-[hsl(0_0%_100%/0.08)] bg-[hsl(0_0%_100%/0.02)]"
                 }`}
               >
-                <span className="grid h-12 w-12 place-items-center rounded-xl border border-[hsl(0_0%_100%/0.1)] text-[#C8A96A]">
+                <span
+                  aria-hidden
+                  className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-700 group-hover/card:opacity-100"
+                  style={{
+                    background:
+                      "radial-gradient(500px 260px at 50% -10%, rgba(127,216,232,0.10), transparent 70%)",
+                  }}
+                />
+                <span className="grid h-12 w-12 place-items-center rounded-xl border border-[hsl(0_0%_100%/0.1)] text-[#C8A96A] transition-colors duration-500 group-hover/card:text-[#7FD8E8]">
                   <cat.Icon className="h-5 w-5" strokeWidth={1.5} />
                 </span>
                 <h3 className="mt-7 text-2xl font-semibold tracking-tight text-[#F5F1EA] sm:text-3xl">{cat.label}</h3>
                 <p className="mt-3 text-sm text-[#9A968F]">{cat.blurb}</p>
+
                 <ul className="mt-7 flex flex-wrap gap-2">
                   {cat.skills.map((s) => (
                     <li

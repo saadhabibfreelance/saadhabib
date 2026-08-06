@@ -272,7 +272,7 @@ export function Header() {
       {/* Fullscreen overlay menu */}
       <div
         ref={overlayRef}
-        className="fixed inset-0 z-[90] hidden flex-col bg-[#060816]/90 backdrop-blur-2xl"
+        className="fixed inset-0 z-[90] hidden flex-col bg-[#060607]/90 backdrop-blur-2xl"
         style={{ display: "none" }}
         role="dialog"
         aria-modal="true"

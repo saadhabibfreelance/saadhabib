@@ -99,7 +99,7 @@ export function Loader() {
   return (
     <div
       ref={rootRef}
-      className="fixed inset-0 z-[1000] flex items-center justify-center bg-[#060816] text-white"
+      className="fixed inset-0 z-[1000] flex items-center justify-center bg-[#060607] text-white"
     >
       <div
         ref={glowRef}

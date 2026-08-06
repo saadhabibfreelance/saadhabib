@@ -2,6 +2,9 @@ import { createFileRoute } from "@tanstack/react-router";
 import { lazy, Suspense } from "react";
 import { Hero } from "../components/home/Hero";
 
+const PortfolioGallery = lazy(() =>
+  import("../components/home/PortfolioGallery").then((m) => ({ default: m.PortfolioGallery })),
+);
 const Story = lazy(() => import("../components/home/Story").then((m) => ({ default: m.Story })));
 const About = lazy(() => import("../components/home/About").then((m) => ({ default: m.About })));
 const Statistics = lazy(() =>
@@ -43,7 +46,8 @@ function Index() {
   return (
     <div>
       <Hero />
-      <Suspense fallback={<div className="min-h-[60vh] bg-[#050816]" />}>
+      <Suspense fallback={<div className="min-h-[60vh] bg-[#060607]" />}>
+        <PortfolioGallery />
         <Story />
         <About />
         <Statistics />

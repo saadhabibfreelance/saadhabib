@@ -97,11 +97,11 @@ export const Hero = memo(function Hero() {
 
           <div ref={refs.cta} className="mt-10 flex flex-wrap items-center gap-4">
             <a
-              href="#services"
-              className="group relative inline-flex items-center gap-2 overflow-hidden rounded-full bg-gradient-to-r from-[#F5F1EA] to-[#C8A96A] px-7 py-4 text-sm font-semibold text-white shadow-[0_10px_40px_-10px_rgba(123,92,255,0.7)] transition-transform duration-[420ms] ease-[cubic-bezier(0.16,1,0.3,1)] hover:scale-[1.03]"
+              href="#work"
+              className="group relative inline-flex items-center gap-2 overflow-hidden rounded-full bg-[#F5F1EA] px-7 py-4 text-sm font-semibold text-[#0B0B0C] shadow-[0_10px_40px_-14px_rgba(245,241,234,0.45)] transition-transform duration-[420ms] ease-[cubic-bezier(0.16,1,0.3,1)] hover:scale-[1.03]"
             >
-              <span className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/30 to-transparent transition-transform duration-[900ms] ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:translate-x-full" />
-              Start a project
+              <span className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-black/10 to-transparent transition-transform duration-[900ms] ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:translate-x-full" />
+              View selected work
               <ArrowRight className="h-4 w-4 transition-transform duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:translate-x-1" />
             </a>
             <a

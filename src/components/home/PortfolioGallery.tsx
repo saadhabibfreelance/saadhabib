@@ -1,21 +1,36 @@
-import { memo } from "react";
+import { memo, useEffect, useRef, useState } from "react";
 import { ArrowLeft, ArrowRight, ArrowUpRight } from "lucide-react";
 import { Link } from "@tanstack/react-router";
 import { projects } from "../../lib/projects";
 import { useCoverflow } from "../../hooks/useCoverflow";
+import { prefersReducedMotion } from "../../lib/motion/easing";
 
 export const PortfolioGallery = memo(function PortfolioGallery() {
   const { index, go, goTo, offsetOf, setPaused, dragBind } = useCoverflow(projects.length);
   const bind = dragBind();
   const featured = projects[index];
 
+  /* cursor-driven endless rotation: pointer left of centre spins left, right spins right */
+  const dir = useRef(0);
+  const [hovering, setHovering] = useState(false);
+
+  useEffect(() => {
+    if (prefersReducedMotion()) return;
+    let raf = 0;
+    const loop = () => {
+      if (Math.abs(dir.current) > 0.12) go(dir.current * 0.028);
+      raf = requestAnimationFrame(loop);
+    };
+    raf = requestAnimationFrame(loop);
+    return () => cancelAnimationFrame(raf);
+  }, [go]);
+
   return (
     <section
       id="work"
       className="relative isolate overflow-hidden bg-[#060607] py-24 text-[#F5F1EA] md:py-32"
-      onMouseEnter={() => setPaused(true)}
-      onMouseLeave={() => setPaused(false)}
     >
+
       <div
         aria-hidden
         className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(1200px_600px_at_50%_-5%,rgba(120,200,220,0.07),transparent_60%)]"
@@ -36,13 +51,32 @@ export const PortfolioGallery = memo(function PortfolioGallery() {
         <h2 className="max-w-3xl text-[clamp(2.4rem,6vw,5.5rem)] font-semibold leading-[0.92] tracking-[-0.03em] text-[#F5F1EA]">
           A portfolio you move through.
         </h2>
+        <p className="mt-2 max-w-xl text-sm text-[#9A968F] sm:text-base">
+          Move your cursor left or right of centre — the ring rotates endlessly in that direction. Drag to spin it
+          yourself.
+        </p>
       </header>
 
-      {/* stage */}
+      {/* rotating ring stage */}
       <div
         {...bind}
-        className="relative mt-16 h-[62vh] min-h-[420px] w-full cursor-grab touch-pan-y select-none active:cursor-grabbing [perspective:1800px] md:h-[66vh]"
+        onPointerEnter={() => {
+          setPaused(true);
+          setHovering(true);
+        }}
+        onPointerLeave={() => {
+          setPaused(false);
+          setHovering(false);
+          dir.current = 0;
+        }}
+        onPointerMove={(e) => {
+          const r = e.currentTarget.getBoundingClientRect();
+          const x = (e.clientX - r.left) / (r.width || 1);
+          dir.current = (x - 0.5) * 2;
+        }}
+        className="relative mt-24 h-[62vh] min-h-[420px] w-full cursor-grab touch-pan-y select-none active:cursor-grabbing [perspective:1800px] md:mt-32 md:h-[66vh]"
       >
+
         <div className="absolute inset-0 [transform-style:preserve-3d]">
           {projects.map((p, i) => {
             const o = offsetOf(i);
@@ -66,7 +100,7 @@ export const PortfolioGallery = memo(function PortfolioGallery() {
                   type="button"
                   onClick={() => goTo(i)}
                   tabIndex={hidden ? -1 : 0}
-                  className="group relative block h-full w-full overflow-hidden rounded-[26px] border border-white/10 bg-[#0B0B0C] text-left shadow-[0_50px_120px_-40px_rgba(0,0,0,0.9)]"
+                  className="group relative block h-full w-full overflow-hidden rounded-[26px] border border-white/10 bg-white/[0.03] text-left shadow-[0_50px_120px_-40px_rgba(0,0,0,0.9)] backdrop-blur-sm"
                 >
                   <img
                     src={p.image}
@@ -94,7 +128,17 @@ export const PortfolioGallery = memo(function PortfolioGallery() {
             );
           })}
         </div>
+
+        <span
+          aria-hidden
+          className={`pointer-events-none absolute bottom-4 left-1/2 -translate-x-1/2 text-[0.6rem] uppercase tracking-[0.35em] text-white/30 transition-opacity duration-500 ${
+            hovering ? "opacity-0" : "opacity-100"
+          }`}
+        >
+          Hover left or right to rotate
+        </span>
       </div>
+
 
       {/* caption + controls */}
       <div className="mx-auto mt-14 grid w-full max-w-7xl grid-cols-1 items-end gap-8 px-5 sm:px-8 md:grid-cols-[minmax(0,1fr)_auto]">

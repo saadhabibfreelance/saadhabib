@@ -86,7 +86,7 @@ export const ServicesShowcase = memo(function ServicesShowcase() {
           const x = (e.clientX - r.left) / (r.width || 1); // 0..1
           dir.current = (x - 0.5) * 2;
         }}
-        className="relative mt-16 h-[58vh] min-h-[420px] w-full cursor-grab touch-pan-y select-none active:cursor-grabbing [perspective:1700px] md:h-[62vh]"
+        className="relative mt-24 h-[58vh] min-h-[420px] w-full cursor-grab touch-pan-y select-none active:cursor-grabbing [perspective:1700px] md:mt-32 md:h-[62vh]"
       >
         <div className="absolute inset-0 [transform-style:preserve-3d]">
           {services.map((s, i) => {

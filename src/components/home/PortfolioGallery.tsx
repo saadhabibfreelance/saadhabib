@@ -100,7 +100,7 @@ export const PortfolioGallery = memo(function PortfolioGallery() {
                   type="button"
                   onClick={() => goTo(i)}
                   tabIndex={hidden ? -1 : 0}
-                  className="group relative block h-full w-full overflow-hidden rounded-[26px] border border-white/10 bg-[#0B0B0C] text-left shadow-[0_50px_120px_-40px_rgba(0,0,0,0.9)]"
+                  className="group relative block h-full w-full overflow-hidden rounded-[26px] border border-white/10 bg-white/[0.03] text-left shadow-[0_50px_120px_-40px_rgba(0,0,0,0.9)] backdrop-blur-sm"
                 >
                   <img
                     src={p.image}

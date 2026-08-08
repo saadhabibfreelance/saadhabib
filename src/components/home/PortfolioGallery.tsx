@@ -1,21 +1,36 @@
-import { memo } from "react";
+import { memo, useEffect, useRef, useState } from "react";
 import { ArrowLeft, ArrowRight, ArrowUpRight } from "lucide-react";
 import { Link } from "@tanstack/react-router";
 import { projects } from "../../lib/projects";
 import { useCoverflow } from "../../hooks/useCoverflow";
+import { prefersReducedMotion } from "../../lib/motion/easing";
 
 export const PortfolioGallery = memo(function PortfolioGallery() {
   const { index, go, goTo, offsetOf, setPaused, dragBind } = useCoverflow(projects.length);
   const bind = dragBind();
   const featured = projects[index];
 
+  /* cursor-driven endless rotation: pointer left of centre spins left, right spins right */
+  const dir = useRef(0);
+  const [hovering, setHovering] = useState(false);
+
+  useEffect(() => {
+    if (prefersReducedMotion()) return;
+    let raf = 0;
+    const loop = () => {
+      if (Math.abs(dir.current) > 0.12) go(dir.current * 0.028);
+      raf = requestAnimationFrame(loop);
+    };
+    raf = requestAnimationFrame(loop);
+    return () => cancelAnimationFrame(raf);
+  }, [go]);
+
   return (
     <section
       id="work"
       className="relative isolate overflow-hidden bg-[#060607] py-24 text-[#F5F1EA] md:py-32"
-      onMouseEnter={() => setPaused(true)}
-      onMouseLeave={() => setPaused(false)}
     >
+
       <div
         aria-hidden
         className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(1200px_600px_at_50%_-5%,rgba(120,200,220,0.07),transparent_60%)]"

@@ -51,13 +51,32 @@ export const PortfolioGallery = memo(function PortfolioGallery() {
         <h2 className="max-w-3xl text-[clamp(2.4rem,6vw,5.5rem)] font-semibold leading-[0.92] tracking-[-0.03em] text-[#F5F1EA]">
           A portfolio you move through.
         </h2>
+        <p className="mt-2 max-w-xl text-sm text-[#9A968F] sm:text-base">
+          Move your cursor left or right of centre — the ring rotates endlessly in that direction. Drag to spin it
+          yourself.
+        </p>
       </header>
 
-      {/* stage */}
+      {/* rotating ring stage */}
       <div
         {...bind}
-        className="relative mt-16 h-[62vh] min-h-[420px] w-full cursor-grab touch-pan-y select-none active:cursor-grabbing [perspective:1800px] md:h-[66vh]"
+        onPointerEnter={() => {
+          setPaused(true);
+          setHovering(true);
+        }}
+        onPointerLeave={() => {
+          setPaused(false);
+          setHovering(false);
+          dir.current = 0;
+        }}
+        onPointerMove={(e) => {
+          const r = e.currentTarget.getBoundingClientRect();
+          const x = (e.clientX - r.left) / (r.width || 1);
+          dir.current = (x - 0.5) * 2;
+        }}
+        className="relative mt-24 h-[62vh] min-h-[420px] w-full cursor-grab touch-pan-y select-none active:cursor-grabbing [perspective:1800px] md:mt-32 md:h-[66vh]"
       >
+
         <div className="absolute inset-0 [transform-style:preserve-3d]">
           {projects.map((p, i) => {
             const o = offsetOf(i);

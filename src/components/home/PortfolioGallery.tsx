@@ -128,7 +128,17 @@ export const PortfolioGallery = memo(function PortfolioGallery() {
             );
           })}
         </div>
+
+        <span
+          aria-hidden
+          className={`pointer-events-none absolute bottom-4 left-1/2 -translate-x-1/2 text-[0.6rem] uppercase tracking-[0.35em] text-white/30 transition-opacity duration-500 ${
+            hovering ? "opacity-0" : "opacity-100"
+          }`}
+        >
+          Hover left or right to rotate
+        </span>
       </div>
+
 
       {/* caption + controls */}
       <div className="mx-auto mt-14 grid w-full max-w-7xl grid-cols-1 items-end gap-8 px-5 sm:px-8 md:grid-cols-[minmax(0,1fr)_auto]">

@@ -168,5 +168,5 @@ export function useCoverflow(count: number, autoMs = 5200) {
     [count, position],
   );
 
-  return { index, position, go, goTo, offsetOf, setPaused, dragBind };
+  return { index, position, go, goTo, offsetOf, setPaused, dragBind, wheelRef };
 }

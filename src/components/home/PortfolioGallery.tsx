@@ -38,13 +38,14 @@ export const PortfolioGallery = memo(function PortfolioGallery() {
           A portfolio you move through.
         </h2>
         <p className="mt-2 max-w-xl text-sm text-[#9A968F] sm:text-base">
-          Move your cursor left or right of centre — the ring rotates endlessly in that direction. Drag to spin it
+          Hover the ring and scroll your mouse wheel — down moves forward, up moves back. Drag or swipe to spin it
           yourself.
         </p>
       </header>
 
       {/* rotating ring stage */}
       <div
+        ref={wheelRef}
         {...bind}
         onPointerEnter={() => {
           setPaused(true);
@@ -53,15 +54,10 @@ export const PortfolioGallery = memo(function PortfolioGallery() {
         onPointerLeave={() => {
           setPaused(false);
           setHovering(false);
-          dir.current = 0;
         }}
-        onPointerMove={(e) => {
-          const r = e.currentTarget.getBoundingClientRect();
-          const x = (e.clientX - r.left) / (r.width || 1);
-          dir.current = (x - 0.5) * 2;
-        }}
-        className="relative mt-24 h-[62vh] min-h-[420px] w-full cursor-grab touch-pan-y select-none active:cursor-grabbing [perspective:1800px] md:mt-32 md:h-[66vh]"
+        className="relative mt-20 h-[66vh] min-h-[440px] w-full cursor-grab touch-pan-y select-none active:cursor-grabbing [perspective:1900px] md:mt-28 md:h-[72vh]"
       >
+
 
         <div className="absolute inset-0 [transform-style:preserve-3d]">
           {projects.map((p, i) => {

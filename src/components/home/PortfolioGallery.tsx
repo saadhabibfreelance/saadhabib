@@ -117,7 +117,7 @@ export const PortfolioGallery = memo(function PortfolioGallery() {
             hovering ? "opacity-0" : "opacity-100"
           }`}
         >
-          Hover left or right to rotate
+          Scroll your wheel over the ring
         </span>
       </div>
 

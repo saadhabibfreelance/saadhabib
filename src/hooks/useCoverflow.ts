@@ -65,28 +65,30 @@ export function useCoverflow(count: number, autoMs = 5200) {
     paused.current = v;
   }, []);
 
+  const cleanupWheel = useRef<(() => void) | null>(null);
+  useEffect(() => () => cleanupWheel.current?.(), []);
+
   /**
    * Wheel control — attach to the gallery stage.
-   * Wheel down → next card, wheel up → previous. The listener is registered on
-   * the element itself (non-passive) so the page keeps scrolling normally
+   * Wheel down → next card, wheel up → previous. The listener lives on the
+   * element itself (non-passive) so the page keeps scrolling normally
    * everywhere else; nothing global is hijacked and the body is never locked.
    */
   const wheelRef = useCallback((el: HTMLElement | null) => {
+    cleanupWheel.current?.();
+    cleanupWheel.current = null;
     if (!el) return;
-    let acc = 0;
     let snap = 0;
     const onWheel = (e: WheelEvent) => {
-      const dy = Math.abs(e.deltaY) >= Math.abs(e.deltaX) ? e.deltaY : e.deltaX;
-      if (!dy) return;
+      const raw = Math.abs(e.deltaY) >= Math.abs(e.deltaX) ? e.deltaY : e.deltaX;
+      if (!raw) return;
       e.preventDefault();
-      const step = e.deltaMode === 1 ? dy * 16 : e.deltaMode === 2 ? dy * 400 : dy;
-      acc += step;
-      target.current += Math.max(-1.2, Math.min(1.2, step / 260));
+      const step = e.deltaMode === 1 ? raw * 16 : e.deltaMode === 2 ? raw * 400 : raw;
+      target.current += Math.max(-1.1, Math.min(1.1, step / 240));
       window.clearTimeout(snap);
       snap = window.setTimeout(() => {
-        acc = 0;
         target.current = Math.round(target.current);
-      }, 140);
+      }, 150);
     };
     el.addEventListener("wheel", onWheel, { passive: false });
     cleanupWheel.current = () => {
@@ -95,8 +97,6 @@ export function useCoverflow(count: number, autoMs = 5200) {
     };
   }, []);
 
-  const cleanupWheel = useRef<(() => void) | null>(null);
-  useEffect(() => () => cleanupWheel.current?.(), []);
 
 
   /* pointer drag */

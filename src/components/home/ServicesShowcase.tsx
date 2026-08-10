@@ -29,9 +29,10 @@ export const ServicesShowcase = memo(function ServicesShowcase() {
             Services &amp; expertise
           </h2>
           <p className="mt-4 max-w-xl text-sm text-[#9A968F] sm:text-base">
-            Move your cursor left or right of centre — the ring rotates endlessly in that direction. Drag to spin it
+            Hover the ring and scroll your mouse wheel — down moves forward, up moves back. Drag or swipe to spin it
             yourself.
           </p>
+
         </div>
         <div className="hidden shrink-0 items-center gap-3 sm:flex">
           <button

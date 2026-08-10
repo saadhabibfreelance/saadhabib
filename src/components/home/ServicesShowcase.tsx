@@ -56,7 +56,7 @@ export const ServicesShowcase = memo(function ServicesShowcase() {
 
       {/* rotating ring stage */}
       <div
-        ref={stage}
+        ref={wheelRef}
         {...bind}
         onPointerEnter={() => {
           setPaused(true);
@@ -65,14 +65,9 @@ export const ServicesShowcase = memo(function ServicesShowcase() {
         onPointerLeave={() => {
           setPaused(false);
           setHovering(false);
-          dir.current = 0;
         }}
-        onPointerMove={(e) => {
-          const r = e.currentTarget.getBoundingClientRect();
-          const x = (e.clientX - r.left) / (r.width || 1); // 0..1
-          dir.current = (x - 0.5) * 2;
-        }}
-        className="relative mt-24 h-[58vh] min-h-[420px] w-full cursor-grab touch-pan-y select-none active:cursor-grabbing [perspective:1700px] md:mt-32 md:h-[62vh]"
+        className="relative mt-20 h-[62vh] min-h-[440px] w-full cursor-grab touch-pan-y select-none active:cursor-grabbing [perspective:1800px] md:mt-28 md:h-[68vh]"
+
       >
         <div className="absolute inset-0 [transform-style:preserve-3d]">
           {services.map((s, i) => {

@@ -136,7 +136,7 @@ export const ServicesShowcase = memo(function ServicesShowcase() {
             hovering ? "opacity-0" : "opacity-100"
           }`}
         >
-          Hover left or right to rotate
+          Scroll your wheel over the ring
         </span>
       </div>
 

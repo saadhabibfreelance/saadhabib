@@ -68,7 +68,7 @@ export const PortfolioGallery = memo(function PortfolioGallery() {
               <article
                 key={p.id}
                 aria-hidden={hidden}
-                className="absolute left-1/2 top-1/2 aspect-[4/5] w-[74vw] max-w-[430px] -translate-x-1/2 -translate-y-1/2 will-change-transform sm:w-[46vw] md:w-[27vw] md:max-w-[400px]"
+                className="absolute left-1/2 top-1/2 aspect-[4/5] w-[76vw] max-w-[460px] -translate-x-1/2 -translate-y-1/2 will-change-transform sm:w-[48vw] md:w-[31vw] md:max-w-[480px]"
                 style={{
                   transform: `translate(-50%, -50%) translateX(${o * 72}%) translateZ(${-a * 190}px) rotateY(${o * -26}deg) scale(${1 - a * 0.06})`,
                   opacity: hidden ? 0 : 1 - a * 0.3,

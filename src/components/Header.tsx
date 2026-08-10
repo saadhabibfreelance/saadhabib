@@ -4,19 +4,21 @@ import { gsap } from "gsap";
 import { Menu, X, Phone, Mail, Linkedin } from "lucide-react";
 
 const SECTIONS = [
+  { id: "work", label: "Projects" },
+  { id: "services", label: "Services" },
   { id: "about", label: "Founder" },
-  { id: "stats", label: "Results" },
-  { id: "services", label: "What I do" },
   { id: "process", label: "Process" },
   { id: "testimonials", label: "Clients" },
-  { id: "contact", label: "Contact" },
 ];
 
 const PAGES = [
-  { to: "/", label: "Home" },
+  { to: "/", label: "Projects" },
   { to: "/services", label: "Services" },
-  { to: "/about", label: "About" },
+  { to: "/products", label: "Products" },
+  { to: "/blogs", label: "Blogs" },
+  { to: "/contact", label: "Contact" },
 ] as const;
+
 
 function useMagnetic<T extends HTMLElement>(strength = 0.35) {
   const ref = useRef<T | null>(null);

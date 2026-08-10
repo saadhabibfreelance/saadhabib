@@ -1,29 +1,14 @@
-import { memo, useEffect, useRef, useState } from "react";
+import { memo, useState } from "react";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import { services } from "../../lib/services";
 import { useCoverflow } from "../../hooks/useCoverflow";
-import { prefersReducedMotion } from "../../lib/motion/easing";
 
 export const ServicesShowcase = memo(function ServicesShowcase() {
-  const { index, go, goTo, offsetOf, setPaused, dragBind } = useCoverflow(services.length, 4200);
+  const { index, go, goTo, offsetOf, setPaused, dragBind, wheelRef } = useCoverflow(services.length, 4200);
   const bind = dragBind();
   const active = services[index];
-
-  /* cursor-driven rotation: pointer left of centre spins left, right spins right */
-  const stage = useRef<HTMLDivElement>(null);
-  const dir = useRef(0);
   const [hovering, setHovering] = useState(false);
 
-  useEffect(() => {
-    if (prefersReducedMotion()) return;
-    let raf = 0;
-    const loop = () => {
-      if (Math.abs(dir.current) > 0.12) go(dir.current * 0.028);
-      raf = requestAnimationFrame(loop);
-    };
-    raf = requestAnimationFrame(loop);
-    return () => cancelAnimationFrame(raf);
-  }, [go]);
 
   return (
     <section
@@ -44,9 +29,10 @@ export const ServicesShowcase = memo(function ServicesShowcase() {
             Services &amp; expertise
           </h2>
           <p className="mt-4 max-w-xl text-sm text-[#9A968F] sm:text-base">
-            Move your cursor left or right of centre — the ring rotates endlessly in that direction. Drag to spin it
+            Hover the ring and scroll your mouse wheel — down moves forward, up moves back. Drag or swipe to spin it
             yourself.
           </p>
+
         </div>
         <div className="hidden shrink-0 items-center gap-3 sm:flex">
           <button
@@ -70,7 +56,7 @@ export const ServicesShowcase = memo(function ServicesShowcase() {
 
       {/* rotating ring stage */}
       <div
-        ref={stage}
+        ref={wheelRef}
         {...bind}
         onPointerEnter={() => {
           setPaused(true);
@@ -79,14 +65,9 @@ export const ServicesShowcase = memo(function ServicesShowcase() {
         onPointerLeave={() => {
           setPaused(false);
           setHovering(false);
-          dir.current = 0;
         }}
-        onPointerMove={(e) => {
-          const r = e.currentTarget.getBoundingClientRect();
-          const x = (e.clientX - r.left) / (r.width || 1); // 0..1
-          dir.current = (x - 0.5) * 2;
-        }}
-        className="relative mt-24 h-[58vh] min-h-[420px] w-full cursor-grab touch-pan-y select-none active:cursor-grabbing [perspective:1700px] md:mt-32 md:h-[62vh]"
+        className="relative mt-20 h-[62vh] min-h-[440px] w-full cursor-grab touch-pan-y select-none active:cursor-grabbing [perspective:1800px] md:mt-28 md:h-[68vh]"
+
       >
         <div className="absolute inset-0 [transform-style:preserve-3d]">
           {services.map((s, i) => {
@@ -97,7 +78,7 @@ export const ServicesShowcase = memo(function ServicesShowcase() {
               <article
                 key={s.id}
                 aria-hidden={hidden}
-                className="absolute left-1/2 top-1/2 w-[76vw] max-w-[380px] -translate-x-1/2 -translate-y-1/2 will-change-transform sm:w-[46vw] md:w-[26vw] md:max-w-[380px]"
+                className="absolute left-1/2 top-1/2 w-[78vw] max-w-[420px] -translate-x-1/2 -translate-y-1/2 will-change-transform sm:w-[48vw] md:w-[30vw] md:max-w-[440px]"
                 style={{
                   transform: `translate(-50%, -50%) translateX(${o * 78}%) translateZ(${-a * 200}px) rotateY(${o * -28}deg) scale(${1 - a * 0.06})`,
                   opacity: hidden ? 0 : 1 - a * 0.3,
@@ -155,7 +136,7 @@ export const ServicesShowcase = memo(function ServicesShowcase() {
             hovering ? "opacity-0" : "opacity-100"
           }`}
         >
-          Hover left or right to rotate
+          Scroll your wheel over the ring
         </span>
       </div>
 

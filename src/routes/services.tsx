@@ -1,4 +1,4 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import { services } from "../lib/services";
 import { Check, ArrowRight } from "lucide-react";
 
@@ -66,20 +66,48 @@ function ServicesPage() {
       </section>
 
       <section className="px-4 py-16 sm:px-6 lg:px-8">
+        <div className="mx-auto max-w-7xl">
+          <h2 data-reveal="blur" className="text-3xl font-semibold tracking-tight text-white sm:text-4xl">
+            Why Work With Us
+          </h2>
+          <div className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+            {[
+              ["Accurate & verified data", "Every record is checked before it reaches you — no guesswork, no dead ends."],
+              ["Targeted research", "Lists built to your exact ICP, market and role criteria rather than generic exports."],
+              ["Organized spreadsheets", "Clean columns, consistent formats and CRM-ready files you can import immediately."],
+              ["Professional communication", "Clear updates, quick replies and one accountable point of contact."],
+              ["Fast turnaround", "Realistic deadlines, met — with progress visible along the way."],
+              ["Quality-focused delivery", "A final QA pass on every project before anything is handed over."],
+            ].map(([title, copy], i) => (
+              <article
+                key={title}
+                data-reveal="scale"
+                data-reveal-delay={String((i % 3) * 0.08)}
+                className="rounded-2xl border border-white/12 bg-white/[0.04] p-6 backdrop-blur-xl transition-colors hover:border-[#7FD8E8]/40"
+              >
+                <h3 className="text-lg font-semibold text-white">{title}</h3>
+                <p className="mt-2 text-sm text-white/70">{copy}</p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="px-4 py-16 sm:px-6 lg:px-8">
         <div data-reveal="scale" className="mx-auto max-w-3xl rounded-2xl border border-white/15 bg-white/[0.06] p-8 backdrop-blur-xl text-center shadow-sm sm:p-12">
-          <h2 data-reveal="blur" className="text-2xl font-bold text-white">Need a custom package?</h2>
+          <h2 data-reveal="blur" className="text-2xl font-bold text-white">Need a custom lead list or digital support?</h2>
           <p data-reveal="fade" data-reveal-delay="0.15" className="mt-3 text-white/70">
-            Most projects combine multiple services. Send me the details and I’ll reply with a tailored quote and timeline.
+            Let’s discuss your project.
           </p>
           <div className="mt-6 flex flex-wrap justify-center gap-4">
-            <a
+            <Link
               data-magnetic
-              href="mailto:saadhabibwebsite@gmail.com"
+              to="/contact"
               className="inline-flex items-center gap-2 rounded-lg bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground transition-colors hover:bg-primary/90"
             >
-              Email Saad Habib
+              Contact Us
               <ArrowRight className="h-4 w-4" />
-            </a>
+            </Link>
             <a
               data-magnetic
               href="tel:+923002019194"
@@ -90,6 +118,7 @@ function ServicesPage() {
           </div>
         </div>
       </section>
+
     </main>
   );
 }

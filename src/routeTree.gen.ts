@@ -12,6 +12,7 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as ServicesRouteImport } from './routes/services'
 import { Route as ProductsRouteImport } from './routes/products'
+import { Route as FivupAdminRouteImport } from './routes/fivup-admin'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as BlogsRouteImport } from './routes/blogs'
 import { Route as AboutRouteImport } from './routes/about'
@@ -30,6 +31,11 @@ const ServicesRoute = ServicesRouteImport.update({
 const ProductsRoute = ProductsRouteImport.update({
   id: '/products',
   path: '/products',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FivupAdminRoute = FivupAdminRouteImport.update({
+  id: '/fivup-admin',
+  path: '/fivup-admin',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ContactRoute = ContactRouteImport.update({
@@ -58,6 +64,7 @@ export interface FileRoutesByFullPath {
   '/about': typeof AboutRoute
   '/blogs': typeof BlogsRoute
   '/contact': typeof ContactRoute
+  '/fivup-admin': typeof FivupAdminRoute
   '/products': typeof ProductsRoute
   '/services': typeof ServicesRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
@@ -67,6 +74,7 @@ export interface FileRoutesByTo {
   '/about': typeof AboutRoute
   '/blogs': typeof BlogsRoute
   '/contact': typeof ContactRoute
+  '/fivup-admin': typeof FivupAdminRoute
   '/products': typeof ProductsRoute
   '/services': typeof ServicesRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
@@ -77,6 +85,7 @@ export interface FileRoutesById {
   '/about': typeof AboutRoute
   '/blogs': typeof BlogsRoute
   '/contact': typeof ContactRoute
+  '/fivup-admin': typeof FivupAdminRoute
   '/products': typeof ProductsRoute
   '/services': typeof ServicesRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
@@ -88,6 +97,7 @@ export interface FileRouteTypes {
     | '/about'
     | '/blogs'
     | '/contact'
+    | '/fivup-admin'
     | '/products'
     | '/services'
     | '/sitemap.xml'
@@ -97,6 +107,7 @@ export interface FileRouteTypes {
     | '/about'
     | '/blogs'
     | '/contact'
+    | '/fivup-admin'
     | '/products'
     | '/services'
     | '/sitemap.xml'
@@ -106,6 +117,7 @@ export interface FileRouteTypes {
     | '/about'
     | '/blogs'
     | '/contact'
+    | '/fivup-admin'
     | '/products'
     | '/services'
     | '/sitemap.xml'
@@ -116,6 +128,7 @@ export interface RootRouteChildren {
   AboutRoute: typeof AboutRoute
   BlogsRoute: typeof BlogsRoute
   ContactRoute: typeof ContactRoute
+  FivupAdminRoute: typeof FivupAdminRoute
   ProductsRoute: typeof ProductsRoute
   ServicesRoute: typeof ServicesRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
@@ -142,6 +155,13 @@ declare module '@tanstack/react-router' {
       path: '/products'
       fullPath: '/products'
       preLoaderRoute: typeof ProductsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/fivup-admin': {
+      id: '/fivup-admin'
+      path: '/fivup-admin'
+      fullPath: '/fivup-admin'
+      preLoaderRoute: typeof FivupAdminRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/contact': {
@@ -180,6 +200,7 @@ const rootRouteChildren: RootRouteChildren = {
   AboutRoute: AboutRoute,
   BlogsRoute: BlogsRoute,
   ContactRoute: ContactRoute,
+  FivupAdminRoute: FivupAdminRoute,
   ProductsRoute: ProductsRoute,
   ServicesRoute: ServicesRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,

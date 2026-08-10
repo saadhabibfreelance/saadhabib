@@ -78,7 +78,7 @@ export const ServicesShowcase = memo(function ServicesShowcase() {
               <article
                 key={s.id}
                 aria-hidden={hidden}
-                className="absolute left-1/2 top-1/2 w-[76vw] max-w-[380px] -translate-x-1/2 -translate-y-1/2 will-change-transform sm:w-[46vw] md:w-[26vw] md:max-w-[380px]"
+                className="absolute left-1/2 top-1/2 w-[78vw] max-w-[420px] -translate-x-1/2 -translate-y-1/2 will-change-transform sm:w-[48vw] md:w-[30vw] md:max-w-[440px]"
                 style={{
                   transform: `translate(-50%, -50%) translateX(${o * 78}%) translateZ(${-a * 200}px) rotateY(${o * -28}deg) scale(${1 - a * 0.06})`,
                   opacity: hidden ? 0 : 1 - a * 0.3,

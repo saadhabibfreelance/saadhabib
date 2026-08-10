@@ -1,29 +1,15 @@
-import { memo, useEffect, useRef, useState } from "react";
+import { memo, useState } from "react";
 import { ArrowLeft, ArrowRight, ArrowUpRight } from "lucide-react";
 import { Link } from "@tanstack/react-router";
 import { projects } from "../../lib/projects";
 import { useCoverflow } from "../../hooks/useCoverflow";
-import { prefersReducedMotion } from "../../lib/motion/easing";
 
 export const PortfolioGallery = memo(function PortfolioGallery() {
-  const { index, go, goTo, offsetOf, setPaused, dragBind } = useCoverflow(projects.length);
+  const { index, go, goTo, offsetOf, setPaused, dragBind, wheelRef } = useCoverflow(projects.length);
   const bind = dragBind();
   const featured = projects[index];
-
-  /* cursor-driven endless rotation: pointer left of centre spins left, right spins right */
-  const dir = useRef(0);
   const [hovering, setHovering] = useState(false);
 
-  useEffect(() => {
-    if (prefersReducedMotion()) return;
-    let raf = 0;
-    const loop = () => {
-      if (Math.abs(dir.current) > 0.12) go(dir.current * 0.028);
-      raf = requestAnimationFrame(loop);
-    };
-    raf = requestAnimationFrame(loop);
-    return () => cancelAnimationFrame(raf);
-  }, [go]);
 
   return (
     <section

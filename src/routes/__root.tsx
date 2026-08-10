@@ -79,6 +79,8 @@ import { AmbientBackground } from "../components/AmbientBackground";
 import { CustomCursor } from "../components/CustomCursor";
 import { Loader } from "../components/Loader";
 import { ScrollProgress } from "../components/ScrollProgress";
+import { Toaster } from "../components/ui/sonner";
+
 
 export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()({
   head: () => ({

@@ -1,133 +1,119 @@
-import { memo, useState } from "react";
+import { memo, useEffect, useRef, useState } from "react";
 import { ArrowLeft, ArrowRight, ArrowUpRight } from "lucide-react";
 import { Link } from "@tanstack/react-router";
 import { projects } from "../../lib/projects";
-import { useCoverflow } from "../../hooks/useCoverflow";
+import { useShowcase } from "../../hooks/useShowcase";
 
 export const PortfolioGallery = memo(function PortfolioGallery() {
-  const { index, go, goTo, offsetOf, setPaused, dragBind, wheelRef } = useCoverflow(projects.length);
+  const { index, go, goTo, stageRef, dragBind } = useShowcase(projects.length);
   const bind = dragBind();
   const featured = projects[index];
-  const [hovering, setHovering] = useState(false);
+  const [parallax, setParallax] = useState({ x: 0, y: 0 });
+  const frame = useRef(0);
 
+  useEffect(() => () => cancelAnimationFrame(frame.current), []);
 
   return (
     <section
       id="work"
       className="relative isolate overflow-hidden bg-[#060607] py-24 text-[#F5F1EA] md:py-32"
     >
-
       <div
         aria-hidden
         className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(1200px_600px_at_50%_-5%,rgba(120,200,220,0.07),transparent_60%)]"
-      />
-      <div
-        aria-hidden
-        className="pointer-events-none absolute inset-0 -z-10 opacity-[0.16] mix-blend-overlay"
-        style={{
-          backgroundImage:
-            "url(\"data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%' height='100%' filter='url(%23n)' opacity='0.55'/></svg>\")",
-        }}
       />
 
       <header className="mx-auto flex w-full max-w-7xl flex-col gap-4 px-5 sm:px-8">
         <span className="text-[0.68rem] font-medium uppercase tracking-[0.4em] text-[#7FD8E8]/80">
           Selected work
         </span>
-        <h2 className="max-w-3xl text-[clamp(2.4rem,6vw,5.5rem)] font-semibold leading-[0.92] tracking-[-0.03em] text-[#F5F1EA]">
+        <h2 className="max-w-3xl text-[clamp(2.2rem,6vw,5rem)] font-semibold leading-[0.95] tracking-[-0.03em]">
           A portfolio you move through.
         </h2>
-        <p className="mt-2 max-w-xl text-sm text-[#9A968F] sm:text-base">
-          Hover the ring and scroll your mouse wheel — down moves forward, up moves back. Drag or swipe to spin it
-          yourself.
+        <p className="max-w-xl text-sm text-[#9A968F] sm:text-base">
+          Scroll over the showcase, drag it, or use the arrows to step between projects.
         </p>
       </header>
 
-      {/* rotating ring stage */}
+      {/* cinematic horizontal showcase */}
       <div
-        ref={wheelRef}
+        ref={stageRef}
         {...bind}
-        onPointerEnter={() => {
-          setPaused(true);
-          setHovering(true);
+        onPointerMove={(e) => {
+          const r = e.currentTarget.getBoundingClientRect();
+          const x = (e.clientX - r.left) / r.width - 0.5;
+          const y = (e.clientY - r.top) / r.height - 0.5;
+          cancelAnimationFrame(frame.current);
+          frame.current = requestAnimationFrame(() => setParallax({ x, y }));
         }}
-        onPointerLeave={() => {
-          setPaused(false);
-          setHovering(false);
-        }}
-        className="relative mt-20 h-[66vh] min-h-[440px] w-full cursor-grab touch-pan-y select-none active:cursor-grabbing [perspective:1900px] md:mt-28 md:h-[72vh]"
+        onPointerOut={() => setParallax({ x: 0, y: 0 })}
+        className="relative mx-auto mt-14 w-full max-w-[1600px] cursor-grab touch-pan-y select-none overflow-hidden px-5 py-6 active:cursor-grabbing sm:px-8 md:mt-20"
       >
-
-
-        <div className="absolute inset-0 [transform-style:preserve-3d]">
+        <div className="flex items-center justify-center gap-4 md:gap-8">
           {projects.map((p, i) => {
-            const o = offsetOf(i);
-            const a = Math.min(Math.abs(o), 3);
-            const hidden = a > 2.6;
+            const d = i - index;
+            const a = Math.abs(d);
+            if (a > 2) return null;
+            const active = d === 0;
             return (
               <article
                 key={p.id}
-                aria-hidden={hidden}
-                className="absolute left-1/2 top-1/2 aspect-[4/5] w-[76vw] max-w-[460px] -translate-x-1/2 -translate-y-1/2 will-change-transform sm:w-[48vw] md:w-[31vw] md:max-w-[480px]"
+                className="shrink-0 transition-[width,opacity,transform,filter] duration-700 ease-[cubic-bezier(0.16,1,0.3,1)]"
                 style={{
-                  transform: `translate(-50%, -50%) translateX(${o * 72}%) translateZ(${-a * 190}px) rotateY(${o * -26}deg) scale(${1 - a * 0.06})`,
-                  opacity: hidden ? 0 : 1 - a * 0.3,
-                  filter: `blur(${(a * 1.8).toFixed(2)}px) brightness(${1 - a * 0.16})`,
-                  zIndex: 100 - Math.round(a * 10),
-                  transition: "opacity 500ms ease, filter 500ms ease",
-                  pointerEvents: a < 0.5 ? "auto" : "none",
+                  width: active ? "min(62vw, 760px)" : "min(22vw, 240px)",
+                  opacity: active ? 1 : 0.42 - (a - 1) * 0.18,
+                  filter: active ? "none" : `blur(${a * 1.4}px)`,
+                  transform: active
+                    ? `translate3d(${parallax.x * 14}px, ${parallax.y * 10}px, 0)`
+                    : `scale(${1 - a * 0.05})`,
                 }}
               >
                 <button
                   type="button"
                   onClick={() => goTo(i)}
-                  tabIndex={hidden ? -1 : 0}
-                  className="group relative block h-full w-full overflow-hidden rounded-[26px] border border-white/10 bg-white/[0.03] text-left shadow-[0_50px_120px_-40px_rgba(0,0,0,0.9)] backdrop-blur-sm"
+                  aria-label={`Show ${p.title}`}
+                  className="group relative block w-full overflow-hidden rounded-[24px] border border-white/10 bg-white/[0.03] text-left shadow-[0_50px_120px_-40px_rgba(0,0,0,0.9)]"
+                  style={{ aspectRatio: active ? "16 / 10" : "3 / 4" }}
                 >
                   <img
                     src={p.image}
                     alt={`${p.title} — ${p.discipline}`}
                     width={1200}
-                    height={1500}
+                    height={750}
                     loading="lazy"
                     decoding="async"
-                    className="h-full w-full object-cover opacity-90 transition-[transform,opacity] duration-[900ms] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-[1.04] group-hover:opacity-100"
+                    className="h-full w-full object-cover opacity-90 transition-transform duration-[900ms] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-[1.04]"
                   />
-                  <span className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/85 via-black/10 to-transparent" />
-                  <span className="pointer-events-none absolute inset-x-0 bottom-0 flex items-end justify-between gap-4 p-6">
-                    <span className="block">
-                      <span className="block text-[0.62rem] uppercase tracking-[0.32em] text-[#7FD8E8]/80">
-                        {p.discipline}
+                  <span className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent" />
+                  {active && (
+                    <span className="pointer-events-none absolute inset-x-0 bottom-0 flex flex-wrap items-end justify-between gap-4 p-6 md:p-8">
+                      <span className="block">
+                        <span className="block text-[0.62rem] uppercase tracking-[0.32em] text-[#7FD8E8]/80">
+                          {p.discipline} · {p.year}
+                        </span>
+                        <span className="mt-2 block text-2xl font-semibold tracking-tight md:text-4xl">
+                          {p.title}
+                        </span>
                       </span>
-                      <span className="mt-2 block text-2xl font-semibold tracking-tight text-[#F5F1EA]">
-                        {p.title}
+                      <span className="inline-flex items-center gap-2 text-sm text-[#7FD8E8]">
+                        View Project
+                        <ArrowUpRight className="h-4 w-4" />
                       </span>
                     </span>
-                    <span className="mb-1 text-[0.68rem] tracking-widest text-white/45">{p.year}</span>
-                  </span>
+                  )}
                 </button>
               </article>
             );
           })}
         </div>
-
-        <span
-          aria-hidden
-          className={`pointer-events-none absolute bottom-4 left-1/2 -translate-x-1/2 text-[0.6rem] uppercase tracking-[0.35em] text-white/30 transition-opacity duration-500 ${
-            hovering ? "opacity-0" : "opacity-100"
-          }`}
-        >
-          Scroll your wheel over the ring
-        </span>
       </div>
 
-
       {/* caption + controls */}
-      <div className="mx-auto mt-14 grid w-full max-w-7xl grid-cols-1 items-end gap-8 px-5 sm:px-8 md:grid-cols-[minmax(0,1fr)_auto]">
+      <div className="mx-auto mt-12 grid w-full max-w-7xl grid-cols-1 items-end gap-8 px-5 sm:px-8 md:grid-cols-[minmax(0,1fr)_auto]">
         <div key={featured?.id} className="min-w-0 animate-fade-in">
           <p className="max-w-xl text-base leading-relaxed text-[#9A968F]">{featured?.summary}</p>
           <div className="mt-5 flex flex-wrap items-center gap-5">
-            <span className="text-sm tracking-wide text-[#F5F1EA]">{featured?.metric}</span>
+            <span className="text-sm tracking-wide">{featured?.metric}</span>
             <Link
               to="/services"
               className="group inline-flex items-center gap-2 text-sm text-[#7FD8E8] transition-colors hover:text-[#F5F1EA]"
@@ -143,7 +129,8 @@ export const PortfolioGallery = memo(function PortfolioGallery() {
             type="button"
             aria-label="Previous project"
             onClick={() => go(-1)}
-            className="grid h-12 w-12 place-items-center rounded-full border border-white/12 text-[#F5F1EA] transition-colors hover:border-[#7FD8E8]/60 hover:text-[#7FD8E8]"
+            disabled={index === 0}
+            className="grid h-12 w-12 place-items-center rounded-full border border-white/12 transition-colors hover:border-[#7FD8E8]/60 hover:text-[#7FD8E8] disabled:opacity-30"
           >
             <ArrowLeft className="h-4 w-4" />
           </button>
@@ -154,7 +141,8 @@ export const PortfolioGallery = memo(function PortfolioGallery() {
             type="button"
             aria-label="Next project"
             onClick={() => go(1)}
-            className="grid h-12 w-12 place-items-center rounded-full border border-white/12 text-[#F5F1EA] transition-colors hover:border-[#7FD8E8]/60 hover:text-[#7FD8E8]"
+            disabled={index === projects.length - 1}
+            className="grid h-12 w-12 place-items-center rounded-full border border-white/12 transition-colors hover:border-[#7FD8E8]/60 hover:text-[#7FD8E8] disabled:opacity-30"
           >
             <ArrowRight className="h-4 w-4" />
           </button>

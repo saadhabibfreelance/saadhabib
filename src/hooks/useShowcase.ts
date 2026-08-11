@@ -24,7 +24,10 @@ export function useShowcase(count: number) {
   const cleanup = useRef<(() => void) | null>(null);
   useEffect(() => () => cleanup.current?.(), []);
 
+  const indexRef = useRef<((i: number) => void) | null>(null);
+
   const stageRef = useCallback(
+
     (el: HTMLElement | null) => {
       cleanup.current?.();
       cleanup.current = null;

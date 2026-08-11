@@ -31,26 +31,35 @@ export function useShowcase(count: number) {
       if (!el) return;
 
       let lock = 0;
+      let current = 0;
       const onWheel = (e: WheelEvent) => {
         const raw = Math.abs(e.deltaY) >= Math.abs(e.deltaX) ? e.deltaY : e.deltaX;
         if (Math.abs(raw) < 2) return;
         const dir = raw > 0 ? 1 : -1;
+        const next = current + dir;
         // let the page scroll normally once the showcase reaches an end
-        setIndex((p) => {
-          const next = p + dir;
-          if (next < 0 || next > count - 1) return p;
-          const now = Date.now();
-          if (now < lock) return p;
-          lock = now + 320;
-          e.preventDefault();
-          return next;
-        });
+        if (next < 0 || next > count - 1) return;
+        e.preventDefault();
+        const now = Date.now();
+        if (now < lock) return;
+        lock = now + 320;
+        current = next;
+        setIndex(next);
+      };
+      indexRef.current = (i: number) => {
+        current = i;
       };
       el.addEventListener("wheel", onWheel, { passive: false });
       cleanup.current = () => el.removeEventListener("wheel", onWheel);
     },
     [count],
   );
+
+  /* keep the wheel controller in sync with clicks / drags / arrows */
+  useEffect(() => {
+    indexRef.current?.(index);
+  }, [index]);
+
 
   const dragBind = useCallback(() => {
     let startX = 0;
